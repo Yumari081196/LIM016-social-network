@@ -1,4 +1,4 @@
-export const seccionMuro1 = () => {
+export const seccionMuro1 = (contenedorCategorias) => {
   const primeraSeccion = document.createElement('section');
   primeraSeccion.classList.add('item2');
   primeraSeccion.innerHTML = `
@@ -19,29 +19,39 @@ export const seccionMuro1 = () => {
         </section>         
         <section class="secCategorias">
             <h1>Explorar</h1>            
-            <div>         
-                <div class="categoriaUnica">
-                    <img src="imagenes/refugioIcono.png" >
-                    <p>Refugio</p>
-                </div>
-                <div class="categoriaUnica">
-                    <img src="imagenes/reportarIcono.png" >
-                    <p>Mascotas perdidas</p>
-                </div>
-                <div class="categoriaUnica">
-                    <img src="imagenes/adoptarIcono.png" >
-                    <p>Adoptar</p>
-                </div>
-                <div class="categoriaUnica">
-                    <img src="imagenes/localizacionIcono.png" >
-                    <p>Localización</p>
-                </div>
-                <div class="categoriaUnica">
-                    <img src="imagenes/medicinasIcono.png" >
-                    <p>Medicinas</p>
-                </div>           
-            </div> 
+            ${contenedorCategorias} 
         </section>
     `;
   return primeraSeccion;
 };
+
+
+
+
+
+
+
+export const categoriasDesktop =`
+    <div id="contenedorCategorias">         
+        <div class="categoriaUnica">
+            <img src="imagenes/refugioIcono.png" >
+            <p>Refugio</p>
+        </div>
+        <div class="categoriaUnica">
+            <img src="imagenes/reportarIcono.png" >
+            <p>Mascotas perdidas</p>
+        </div>
+        <div class="categoriaUnica">
+            <img src="imagenes/adoptarIcono.png" >
+            <p>Adoptar</p>
+        </div>
+        <div class="categoriaUnica">
+            <img src="imagenes/localizacionIcono.png" >
+            <p>Localización</p>
+        </div>
+        <div class="categoriaUnica">
+            <img src="imagenes/medicinasIcono.png" >
+            <p>Medicinas</p>
+        </div>           
+    </div>
+    `

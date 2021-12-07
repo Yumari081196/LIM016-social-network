@@ -55,12 +55,7 @@ export const seccionMuro2 = () => {
                     <img src="imagenes/compartirIcono.png">
                 </div>
             </div>           
-        </div>
-
-
-
-        
-       
+        </div>       
    `;
   return segundaSeccion;
 };

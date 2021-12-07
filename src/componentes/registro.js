@@ -53,11 +53,9 @@ export const registroCorreo = (selectorForm, containerError) => {
     registroUsuario(correoRegistro, claveRegistro)
       .then((userCredential) => {
         const user = userCredential.user;
-        //if (!user.emailVerified) {
-          envioCorreoVerificacion().then(() => {
+        envioCorreoVerificacion().then(() => {
           agregarUsuarioConId(usuarioRegistro, correoRegistro, claveRegistro, user.uid);
-          });
-        //};
+        });
         ubicacionModal.innerHTML = modalRegistro.exito();
         setTimeout(() => {
           const modalExito = document.getElementById('modalExito');
