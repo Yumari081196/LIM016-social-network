@@ -9,7 +9,6 @@ export const seccionMuro2 = () => {
                 <button class="botonCompartir">Compartir</button>                            
             </div>                  
         </div>
-        
         <div class="tableroPost">
             <div class="usuarioPost">
                 <div class="infoUsuarioPost">
