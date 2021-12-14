@@ -7,40 +7,38 @@ export const seccionMuro1 = () => {
                 <img src="imagenes/ImgDelUsuario.png">
             </div>  
             <div class="contenedorPerfil">
-                <div class="ImgCentralUsuario">
-                    <img src="imagenes/ImgUsuario.png">
-                </div>
+                <img src="imagenes/ImgUsuario.png">
                 <div class="datosUsuario">
-                    <h2 class="nombreUsuario">Usuario</h2>
-                    <h3 class="estadoUsuario">Amante de los animales</h3>
+                    <h2 class="nombreUsuario">Lucía Lopez</h2>
+                    <p class="estadoUsuario">Amante de los animales</p>
                 </div>
             </div>
         </section>         
         <section class="secCategorias">
-            <h1>Explorar</h1>
-            <div>            
-                <div class="categoriaUnica">
-                    <img src="imagenes/refugioIcono.png" >
+            <h1>Grupos</h1>            
+            <div class= "contenedorCategorias">         
+                <a class="categoriaUnica">
+                    <img src="imagenes/iconoRefugioMascotas.png" >
                     <p>Refugio</p>
-                </div>
-                <div class="categoriaUnica">
+                <a>
+                <a class="categoriaUnica">
                     <img src="imagenes/reportarIcono.png" >
                     <p>Mascotas perdidas</p>
-                </div>
-                <div class="categoriaUnica">
+                </a>
+                <a class="categoriaUnica">
                     <img src="imagenes/adoptarIcono.png" >
                     <p>Adoptar</p>
-                </div>
-                <div class="categoriaUnica">
+                </a>
+                <a class="categoriaUnica">
                     <img src="imagenes/localizacionIcono.png" >
                     <p>Localización</p>
-                </div>
-                <div class="categoriaUnica">
+                </a>
+                <a class="categoriaUnica">
                     <img src="imagenes/medicinasIcono.png" >
-                    <p>Medicinas</p>
-                </div>           
+                    <p>Donaciones</p>
+                </a>           
             </div> 
-        </section>
+        </section>       
     `;
   return primeraSeccion;
 };

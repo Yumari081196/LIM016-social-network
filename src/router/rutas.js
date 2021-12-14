@@ -2,8 +2,9 @@ import { componentes } from '../lib/index.js';
 import { formRegistros, registroCorreo } from '../componentes/registro.js';
 import { formInicioSesion, inicioSesion } from '../componentes/inicioSesion.js';
 import { muro } from '../componentes/muro.js';
-import { cerrarSesion } from '../componentes/headerMuro.js';
+import { cerrarSesion, menuPuntosVerticales } from '../componentes/headerMuro.js';
 import { userState } from '../componentes/validaciones.js';
+import { menuPuntosHorizontales, publicarHome } from '../componentes/seccionSecMuro.js';
 
 export const vistasPantalla = () => {
   const main = document.getElementById('main');
@@ -16,17 +17,20 @@ export const vistasPantalla = () => {
 
     case '#/registro':
       main.appendChild(componentes.fondoHome(formRegistros()));
-      registroCorreo( 'formRegistro', 'ubicacionModal');
+      registroCorreo('formRegistro', 'ubicacionModal');
       break;
 
     case '#/artmuro':
       userState();
       main.appendChild(muro());
       cerrarSesion();
+      menuPuntosVerticales();
+      menuPuntosHorizontales();
+      publicarHome('formCompartir', 'container-post');
       break;
 
     default:
-      main.innerHTML = 'paginaNo encontrada';
+      main.innerHTML = 'Página No Encontrada';
       break;
   }
 };
