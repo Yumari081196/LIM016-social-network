@@ -1,18 +1,16 @@
 // importamos la funcion que vamos a testear
-/* import { myFunction } from '../src/lib/index';
-
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
-  });
-}); */
 import { inicioSesionUsuario } from '../src/firebase/funcionesAuth';
 
-jest.mock('../src/firebase/funcionesAuth');
+jest.mock('../src/firebase/config');
 
-describe('Métodos de Firebase.auth()', () => {
-  it('Inicia sesion con correo y contraseña', () => inicioSesionUsuario('fazahuanchef@gmail.com', 'holaFio123')
-    .then((user) => {
-      expect(user.email).toBe('fazahuanchef@gmail.com');
-    }));
+describe('inicioSesionUsuario', () => {
+  it('deberia ser una funcion', () => {
+    expect(typeof inicioSesionUsuario).toBe('function');
+  });
+  it('', () => {
+    // nos retorna un objeto
+    inicioSesionUsuario('fazahuanchef@gmail.com', 'ejemploClave')
+      .then(() => {
+      });
+  });
 });

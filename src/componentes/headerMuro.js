@@ -1,24 +1,25 @@
 import { cierreActividadUsuario } from '../firebase/funcionesAuth.js';
+import { validateSessionStorage } from './validaciones.js';
 
 export const contenidoHeader = () => {
+  const userData = validateSessionStorage();
   const headerMuro = `
         <div class="enlacePerfil">
             <img src="imagenes/ImgUsuario.png" class="imagenUsuario">
-            <p class="nombreUsuario">Lucía Lopez</p>
-        </div>       
+            <p class="nombreUsuario"><a id="perfil" href="#/artperfil">${userData.username}</a></p>
+        </div>
         <img src="imagenes/CarePets.svg" class="titulo-header">
         <div class="puntosVerticales">
           <figure></figure>
           <figure class="middle"></figure>
-          <p class="equis">x</p>
+          <p class="equis"></p>
           <figure></figure>
           <ul class="desplegable">
             <li><a id="tema"><img src="imagenes/bx-palette.png"><span>Tema</span></a></li>
             <li><a id="cerrar-sesion"><img src="imagenes/sign-out.png"><span>Cerrar Sesión</span></a></li>
           </ul>
         </div>
-        
-    `;
+      `;
   return headerMuro;
 };
 

@@ -1,11 +1,10 @@
 *{
     margin: 0;
     padding: 0;
+    outline: none;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
 }
-
-/*---------------------------------------------------PRIMERA VISTA----------------------------------------------*/
 main{
     background-color: #F2EEE3;
     width: 100%;    
@@ -13,15 +12,12 @@ main{
     display: flex;
     flex-direction: column;
 }
-
 .borde{
     height: 12vh;
 }
-
 .borde img{
     height: 100%;
 }
-
 .cajaGrande{
     display: flex;
     position: relative;
@@ -29,7 +25,6 @@ main{
     flex-wrap: wrap;
     margin: 3vh 1.5%;
 }
-
 .cajaInterna1, .cajaInterna2{
     width: 50%;
     height: 100%;
@@ -38,26 +33,21 @@ main{
     align-items: center;
     font-size: 18px;
 }
-
 .cajaInterna1{
     justify-content: center;
 }
-
 #huellaLogo{
     width: 40%;
     margin: 5%;
 }
-
 .slogan{
-    font-size: 2.5rem;
+    font-size: 35px;
     text-align: center;
     width: 80%;
 }
-
 .cajaInterna2{
     justify-content: space-evenly;
 }
-
 .cajaInterna2 form{
     width: 100%;
     display: flex;
@@ -65,7 +55,6 @@ main{
     justify-content: center;
     align-items: center;
 }
-
 .seccionIngreso{
     width: 52%;
     height: 6vh;
@@ -78,9 +67,7 @@ main{
     box-sizing: border-box;
     border-radius: 20px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
-
 }
-
 .seccionIngreso i{
     width: 12%;
     margin: 1% 4%;
@@ -88,11 +75,9 @@ main{
     font-weight: bold;
     color: #F0AA70;
 }
-
 .ph-eye-closed, .ph-eye{
     cursor: pointer;
 }
-
 .datosIngreso{
     margin: 1% 5%;
     width: 70%;
@@ -101,25 +86,22 @@ main{
     outline: none;
     font-size: 18px;
 }
-
-.seccionCheckbox{
+.seccionCheckbox {
     width: 55%;
     height: 6vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.seccionCheckbox label{
+.seccionCheckbox label {
     font-size: 13px;
     margin-left: 5px;
     text-align: center;
 }
-
-.iniciarSesion{
+.iniciarSesion {
     margin: 2%;
     width: 20%;
-    border-radius: 1.25rem;
+    border-radius: 20px;
     background-color: #CE7338;
     border: 4px solid #CE7338;
     cursor: pointer;
@@ -127,7 +109,6 @@ main{
     color: #FFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 .logosInicio{
     width: 20%;
     display: flex;
@@ -135,22 +116,18 @@ main{
     margin: 1.5%;
     cursor: pointer;
 }
-
 .logosInicio img{
     width: 30%;
 }
-
 .texto{
     margin: 1%;
 }
-
 .texto a{
     color: #CE7338;
     cursor: pointer;
     font-weight: 600;
     text-decoration: none;
 }
-
 /*---------------------Características de los Modales-------------*/
 #ubicacionModal{
     position: absolute;
@@ -158,7 +135,6 @@ main{
     padding: 10px;
     justify-content: center; 
 }
-
 .modalError, .modalExito{
     width: auto;
     height: auto;
@@ -170,20 +146,16 @@ main{
     justify-content: center; 
     animation: slideUpLarge 5s;
 }
-
 .modalError{
     background-color: #EA4335;
 }
-
 .modalExito{
     background-color: #34A853;   
 }
-
 .modalError i, .modalExito i {
     color: #FFFF;
     margin: 0 15px 0 10px;  
 }
-
 .modalError p, .modalExito p {
     color:#FFFF;
     font-size: 16px;
@@ -191,7 +163,6 @@ main{
     justify-self: center;
    
 }
-
 @keyframes slideUpLarge {
     0% {
       transform: translateX(0%);
@@ -203,7 +174,6 @@ main{
         transform: translateX(0%);
     }
 }
-
 /*--------------------------------------------SEGUNDA VISTA------------------------------------------------*/
 /* ------------características del header-----------------*/
 header{
@@ -214,7 +184,6 @@ header{
     align-items: center;
     padding: 0 20px;
 }
-
 .enlacePerfil{
     display: flex;
     width: auto;
@@ -223,23 +192,21 @@ header{
     align-items: center;
     cursor: pointer;
 }
-
-.enlacePerfil p{
+.nombreUsuario a{
+    text-decoration: none;
     color: #844124;
     font-size: 25px;
     text-align: center;
     font-weight: bold;
+    text-transform: capitalize;
 }
-
 .imagenUsuario{
     width: 60px;
     height: 60px;
 }
-
 .titulo-header{
     height: 70%;
 }
-
 /* ------------características del muro-----------------*/
 .grid-container{
     display: grid;
@@ -247,22 +214,19 @@ header{
     grid-template-columns: 1fr 2fr;
     border:transparent;  
 }
-
 /*--------------------características de la sección izquierda-----------------*/
 .secUsuario, .secCategorias{
     margin: 3vh 7.5%;
 }
-
 .contenedorPortada{
     height: 20vh;
 }
-
 .contenedorPortada img{
     width: 100%;
     height: 100%;
 }
-
 .contenedorPerfil{
+    display: flex;
     height: 20vh;
     background-color: #F2E0AA;
     display: flex;
@@ -274,24 +238,29 @@ header{
     padding: 0.4%;
     border-color: #844124;
 }
-
 .contenedorPerfil img{
     width: 130px;
     height: 130px;
 }
-
 .datosUsuario{
-    width: 60%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     padding: 2%;
+    text-align: center;
+    justify-content: center;
 }
-
-.nombreUsuario{
+.datosUsuario .nombreUsuario{
     font-weight: 35px;
-    color: #000000;
-    
+    color: #000000;  
+    text-transform: capitalize;
 }
-
-.estadoUsuario{
+.datosUsuario .correoUsuario{
+    color: #1e3b99;
+    font-weight: bold;
+}
+.datosUsuario .estadoUsuario{
+    text-transform: capitalize;
     font-weight: 20px;
     color: #605D5D;
 }
@@ -302,7 +271,6 @@ header{
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
     padding: 2% 5%;
 }
-
 .secCategorias h1{
     display: flex;
     color:#844124;
@@ -311,13 +279,11 @@ header{
     justify-content: left;
     padding-bottom: 5% ;
 }
-
 .categoriaUnica{
     display: flex;
     padding: 1% 0;
     align-items: center;
 }
-
 .categoriaUnica img{
     align-items: center;
     padding: 2px;
@@ -326,15 +292,325 @@ header{
     margin-right: 5% ;
     cursor: pointer;
 }
- 
- .categoriaUnica p{
-     justify-content: left;
-     cursor: pointer;
-     font-size: 20px;
-     font-weight: 700;
-     color: #8F7D7D;
+.categoriaUnica p{
+    justify-content: left;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    color: #8F7D7D;
 }
-
+/* ---------------características de la sección de post-----------*/
+.tableroCompartir, .tableroPost{
+    margin: 3vh 5.5% 3vh 0;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+}
+.tableroCompartir{
+    padding: 2.5vh 3%;
+    background-color: #E5DCC3;
+    height:auto;
+}
+.tableroCompartir input{
+    width: 100%;
+    height: 15vh;
+    border-color: transparent;
+    border-radius: 10px;
+}
+.tableroCompartir .botones{
+    padding: 1vh 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2%;
+}
+.botonCompartirImagen{
+    border-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+.botonCompartir{
+    background-color: #F0AA70;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgb(0 0 0 / 35%);
+    border-color: transparent;
+    color: white;
+    overflow: hidden;
+    font-size: 17px;
+    font-weight: 600;
+    width: 25%;
+    min-width: 95px;
+    height: 6vh;
+    cursor: pointer;
+}
+.tableroCompartir select{
+    background-color: #F0AA70;
+    border-radius: 10px;
+    border-color: transparent;
+    box-shadow: 4px 4px 10px rgb(0 0 0 / 35%);
+    color: white;
+    width: 29%;
+    font-size: 17px;
+    font-weight: 600;
+    min-width: 95px;
+    height: 6vh;
+    cursor: pointer;
+}
+.container-post{
+    width: auto;
+    height: auto;
+}
+.tableroPost{
+    background-color: white;
+    padding-top: 3%;    
+}
+.usuarioPost{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    padding: 0 3%;
+}
+.imgUsuarioPost{
+    display: flex;
+    width: 20%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+.imgPost{
+    width: 80px;  
+    height: 80px;  
+}
+.infoUsuarioPost{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    text-transform: capitalize;
+}
+.nombreUsuarioPost{
+    display: flex;
+    color: #515151;
+    font-size: 25px;
+    font-weight: bold;
+}
+.descripcionUsuarioPost{
+    color: #515151;
+    font-size: 15px;
+}
+.estadoCompartido{
+    display: flex;
+    width: auto;
+    height: auto;
+    padding: 3%;
+    text-align: justify;
+    justify-content: center;
+}
+/*--------------------características de la sección perfil de usuario----------------------*/
+.cuerpoPerfil, .cuerpoEditarPerfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contenedor-perfil{
+    padding: 3%;
+}
+.fondo1{
+    display: flex;
+    overflow: hidden;
+    width: 85%;
+    height: 60vh;
+    max-height: 500px;
+    background-color: #F2E0AA;
+    border-radius: 30px 30px 20px 20px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+}
+.fondoImagenPerfil{
+    width: 100%;
+    height: 35vh;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+}
+.fondoImagenPerfil img{
+    width: 100%;
+    height: 35vh;
+}
+.btnEditar{
+    display: none;
+}
+.fondo2{
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 1% 7%;    
+}
+.contenidoTextPerfil{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    word-spacing: 2px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    text-transform: capitalize;
+}
+.contenidoTextPerfil h2, .contenidoTextPerfil p{
+    margin: 5px 0;   
+    text-align: center;
+}
+.contenidoTextPerfil p{
+    display: flex;
+    font-size: 16px;
+}
+.botonesDelPerfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    height: auto;
+}
+.botonesDelPerfil .btnEditar, .botonesDelPerfil .btnInicio, .guardarCambios, .botonesFormularios .btnInicio{
+    display: flex;
+    background-color: #F0AA70;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+    border-color:transparent;
+    overflow: hidden;
+    justify-content: center;
+    width: 70%;
+    min-width: 102px;
+    max-width: 160px;
+    height: 6vh;
+    font-size: 16px;
+    cursor: pointer;
+    align-items: center;
+    padding: 3px;
+    margin-top: 15px;
+}
+.btnInicio a, .btnEditar a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+.botonesDelPerfil .btnEditar p{
+    display: inline-block;
+    font-size: 17px;
+}
+.seccPostUsuario{
+    width: 70%;
+}
+.seccPostUsuario .tableroPost{
+    margin: 3vh 0;
+}
+/*--------------------características de la sección Editar - perfil de usuario----------------------*/
+.fondoModal{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+.modal-perfil-container{
+    display: flex;
+    flex-direction: column;   
+    background-color: #F2EEE3;
+    width: 90%;
+    height: 80%;
+    border-radius: 19px;
+    padding: 1%;
+}
+.modalContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.cajaSuperior{
+    width: 90%;
+}
+.fondoImagenSecPerfil{
+    display: flex;
+    border-radius: 10px;
+}
+.fondoImagenSecPerfil img{
+    width: 100%;
+    border-radius: 18px;
+}
+.infActualDelUsuario{
+    display: flex;
+    padding: 2%;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    text-align: center;
+}
+.imgPerfilUsuario{
+    display: flex;
+    width: 45%;
+    justify-content: center;
+}
+.imgPerfilUsuario img{
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+}
+.modalFormulario{
+    display: flex;
+    width: 100%;
+}
+.cajaImputDatos{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 13vh;
+    padding: 1% 5%;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4DCB6;
+    border: transparent;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+    margin: 2.5%;
+}
+.textSeccActualizacion{
+    display: flex;
+    width: 100%;
+    height: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+.cajaImputDatos input{
+    display: flex;
+    width: 100%;
+    height: 30%;
+    min-height: 32px;
+    margin: 2% 0;
+    border: transparent;
+    border-radius: 7px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+}
+.botonesFormularios{
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: space-around;
+}
+.botonesFormularios .guardarCambios, .botonesFormularios .btnInicio{
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+}
+#formIngreso{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 /*--MENU PUNTOS VERTICALES & HORIZONTALES--*/
 .puntosVerticales, .puntosHorizontales {
     cursor: pointer;
@@ -343,22 +619,18 @@ header{
     box-sizing: border-box;
     padding: 0 16px;
 }
-
 figure, .puntos {
     width: 6px;
     height: 6px;
     border-radius: 5px;
     background: #844124;
 }
-
 figure{
     margin: 3px 0;
 }
-
 .puntos{
     margin: 0 2px;
 }
-
 .middle, .middle2 {
     transform: scale(1);
     position: relative;
@@ -366,47 +638,33 @@ figure{
     -webkit-filter: blur(.1px);
     filter: blur(.1px);
 }
-  
 .middle.active, .middle2.active {
-    transform: scale(5);
     box-shadow: 0 0.1px 0.1px 0 rgba(0, 0, 0, 0.16), 0 0.1px 0.3px 0 rgba(0, 0, 0, 0.12);
 }
-
-.equis, .equis2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    margin-top: -1px;
-    color: #F0AA70;
-    font-size: 22px;
-    font-weight: bold;
-    user-select: none;
-}
-
-.equis2{
-    top: 5%;
-}
-
-.equis.active, .equis2.active {
-    transform: translate(-50%, -50%) scale(1);
-}
-
 .puntosHorizontales {
     display: flex;
     flex-wrap: wrap;
 }
-
 .puntosVerticales ul, .puntosHorizontales ul{
+    display: flex;
+    flex-direction: column;
     list-style: none;
-    width: 150px;
-    padding: 10px;
     border-radius: 10px;
     background: #E5DCC3;
     margin-right: 10%;
     text-decoration: none;
+    justify-content: space-around;
+    align-items: flex-start;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
 }
-
+.puntosVerticales ul{
+    width: 150px;
+    padding: 8px;
+}
+.puntosHorizontales ul{
+    width: 120px;
+    padding: 9px;
+}
 .nombreUsuarioPost img{
     width: 30px;
     height: 30px;
@@ -414,15 +672,12 @@ figure{
     align-items: center;
     cursor: pointer;
 }
-
 .contenidoCompartido{
     width: auto;
 }
-
 .contenidoCompartido img{
     width: 100%;
 }
-
 .botonesReaccion{
     background-color: #E5DCC3;
     display: flex;
@@ -430,177 +685,75 @@ figure{
     border-radius: 0 0 10px 10px;
     padding: 2%;
 }
-
 .botonesReaccion img{
     width: 30px;
     height: 30px;
     margin: 1%;
     cursor: pointer;
 }
-
 .icon img{
     width: 50px;
     height: 50px;
     cursor: pointer;
 }
-
 .desplegable li a, .desplegable2 li a{
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     color: #844124;
     font-weight: 600;
 }
-
+.btnDelete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #844124;
+    font-weight: 600;
+    cursor: pointer;
+    border: transparent;
+    background-color: transparent;
+}
 .desplegable li a img, .desplegable2 li a img{
     margin-right: 5px;
 }
-
+#cerrar-sesion img{
+    margin-left: 5px;
+}
 .desplegable, .desplegable2{
     position: absolute;
-    right: 0;
-    top: 2em;
+    height: 100px;
     transition: all 0.25s ease-out;
     transform: scale(0);
     transform-origin: 100% 0;
 }
-
+.desplegable{
+    right: -20px;
+    top: 3em;
+}
+.desplegable2{
+    right: -40px;
+    top: 2em;
+}
 .desplegable.active, .desplegable2.active {
     transform: scale(1);
     transition: all 0.25s cubic-bezier(.5,1.8,.9,.8);
 }
-
 .contenedorCategorias a:hover{
     background-color: #E3CF98;
 }
-
-.contenedorCategorias a:active{
+.contenedorCategorias a:active::before{
     background-color: #E3CF98;
 }
-
-/* ---------------características de la sección de post-----------*/
-.tableroCompartir, .tableroPost{
-    margin: 3vh 5.5% 3vh 0;
-    border-radius: 10px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
-}
-
-.tableroCompartir{
-    padding: 2.5vh 3%;
-    background-color: #E5DCC3;
-    height:auto;
-}
-
-.tableroCompartir input{
-    width: 100%;
-    height: 15vh;
-    border-color: transparent;
-    border-radius: 10px;
-}
-
-.tableroCompartir .botones{
-    padding: 1vh 0;
+/*------------------------------------------------------*/
+footer{
     display: flex;
+    width: 100%; 
     justify-content: space-between;
-    align-items: center;
-    margin-top: 2%;
-}
-
-.botonCompartirImagen{
-    border-color: transparent;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.botonCompartir{
+    height: 10vh;
     background-color: #F0AA70;
-    border-radius: 10px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
-    border-color:transparent;
-    color: white;
-    overflow: hidden;
-    font-weight: 600;
-    width: 25%;
-    min-width: 95px;
-    height: 4vh;
-    cursor: pointer;
-}
-
-.tableroCompartir select{
-    background-color: #F0AA70;
-    border-radius: 10px;
-    border-color:transparent;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
-    color: white;
-    width: 25%;
-    font-weight: 600;
-    min-width: 95px;
-    height: 4vh;
-    cursor: pointer;
-    outline: none;
-}
-
-.container-post{
-    width: auto;
-    height: auto;
-}
-
-.tableroPost{
-    background-color: white;
-    padding-top: 3%;    
-}
-
-.usuarioPost{
-    width: 100%;
-    display: flex;
-    padding: 0 3%;
-    height: auto;
     align-items: center;
-    justify-content: space-between;
+    padding: 0 20px;
 }
-
-.imgUsuarioPost{
-    display: flex;
-    width: 18%; 
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
-}
-
-.imgPost{
-    width: 80px;  
-    height: 80px;  
-}
-
-.infoUsuarioPost{
-    justify-content: space-between;
-    display: block;
-    width: 65%;   
-    padding: 0 3%; 
-}
-
-.nombreUsuarioPost{
-    display: flex;
-    color: #515151;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.descripcionUsuarioPost{
-    color: #515151;
-    font-size: 15px;
-}
-
-.estadoCompartido{
-    display: flex;
-    width: auto;
-    height: auto;
-    padding: 3%;
-    justify-content: center;
-}
-
-
-
 /*--------------------barraNavegacionInferior------------------*/
 .barraNavegacionInferior{
     display: none;
@@ -615,7 +768,6 @@ figure{
     height: 60px;
     align-items: center;
 }
-
 .barraNavegacionInferior ul{
     display: flex;
     width: 100%;
@@ -623,50 +775,88 @@ figure{
     justify-content: space-around;
     align-items: center;
 }
-
 .barraNavegacionInferior ul li{
     list-style: none;
     height: 100%;
     align-items: center;
 }
-
 .list{
     display: flex;
 }
-
 /*----------------------------------------------------MEDIA QUERIES---------------------------------------------*/
 /*---------------responsive de la primera vista-----------------*/
-@media (max-width: 1024px){
-    .seccionIngreso{
-        height: auto;
+@media (max-width: 1160px) {
+    .correoUsuario{
+        font-size: 13px;
     }
+}
+@media (max-width: 993px){
+    .contenedorPerfil{
+        flex-direction: column;
+    }
+    .contenedorPerfil img{
+        width:80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+    .contenedorPerfil p{
+        text-align: center;
+    }
+    .contenedorPerfil .estadoUsuario{
+        font-size: 14px;
+    }
+
+}
+@media (max-width: 1024px){
+    /* .seccionIngreso{
+        height: auto;
+    } */
     .seccionIngreso i{
         font-size: 30px;
     }
 }
-
+@media screen and (max-width:800px){
+    .fondo1{
+        width: 95%;
+        height: 60vh;
+    }
+    .seccPostUsuario{
+        width: 95%;
+        margin-bottom: 8vh;
+    }
+}
 @media screen and (max-width:860px){
     .item3{
         padding-bottom: 60px;
     }
-    .botonAgregar{
-        font-size: 12px;
+    .btnEditar{
+        font-size: 14px;
         font-weight: 600;
     }
     .botonCompartir{
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 600;
     }
    .tableroCompartir select{
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 600;
     }
     .estadoUsuario{
         font-size: 14px;
     }
 }
-
-@media (max-width: 768px){
+@media screen and (max-width:785px){
+    /* .datosIngreso{
+        font-size: 14px;
+    }
+    .seccionIngreso i {
+        font-size: 25px;
+    }  */
+    .estadoUsuario{
+        font-size: 13px;
+    }
+}
+@media screen and (max-width:768px){
     .cajaInterna1{
         width: 40%;
         padding: 2%;
@@ -689,7 +879,7 @@ figure{
     .iniciarSesion{
         width: 25%;
     }
-    .enlacePerfil,.secUsuario, .secCategorias{
+    .enlacePerfil, .secUsuario, .secCategorias{
         display: none;
     }
     .enlacePerfil{
@@ -707,8 +897,33 @@ figure{
     .barraNavegacionInferior{
         display: block;
     }
+    .seccPostUsuario{
+        width: 85%;
+        margin-bottom: 8vh;
+    }
+    .item3 .container-post .tableroPost {
+        justify-content: flex-start;
+    }
+    .fondo2{        
+        padding: 1% 5%;    
+    }
+    #formIngreso{
+        margin-bottom: 12vh;
+    }
+    .botonesFormularios .btnInicio{
+        display: none;
+    }
+    .imgPerfilUsuario img {
+        width: 120px;
+        height: 120px;
+    }
+    .botonesDelPerfil .btnInicio{
+        display: none;
+    }
+    .contenidoTextPerfil h2, .contenidoTextPerfil p {
+        text-align: center;
+    }
 }
-
 @media (max-width: 640px){
     .slogan{
         font-size: 21px;
@@ -716,8 +931,55 @@ figure{
     .seccionIngreso i{
         font-size: 30px;
     }
+    .botonesDelPerfil {
+        display: none;
+    }
+    .cuerpoPerfil .usuarioPost {
+        justify-content: space-between;
+        
+    }
+    .cuerpoPerfil{
+        margin-bottom: 9vh;
+    }
+    .btnEditar{
+        display: block;
+        background-color: #F0AA70;
+        border-radius: 10px;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+        border-color:transparent;
+        overflow: hidden;
+        justify-content: center;
+        width: 70%;
+        min-width: 102px;
+        max-width: 160px;
+        height: 6vh;
+        cursor: pointer;
+        align-items: center;
+        padding: 3px;
+        margin-top: 15px;
+    }
+    
 } 
-
+@media screen and (max-width:480px){
+    .fondo1{
+        width: 95%;
+        height: 55vh;
+    }
+    .seccPostUsuario{
+        width: 95%;
+        margin-bottom: 8vh;
+    }
+}
+@media screen and (max-width:478px){
+    .nombreUsuarioPost{
+        font-size: 20px;
+        /* justify-content: end; */
+    }
+    .imgPost{
+        width: 50px;  
+        height: 50px;  
+    }
+} 
 @media (max-width: 425px){ 
     #huellaLogo{
         width: 35%;
@@ -747,18 +1009,90 @@ figure{
     .datosIngreso{
         font-size: 16px;
     }
-    /* .equis2 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-70%, -100%) scale(0);
-        margin-top: -1px;
-        color: #F0AA70;
-        font-size: 22px;
-        font-weight: bold;
-        user-select: none;
+    .imgPerfilUsuario img {
+        width: 90px;
+        height: 90px;
     }
-    .equis2.active {
-        transform: translate(-50%, -50%) scale(1);
-    } */
+    .puntosHorizontales{
+        width: 50px;
+    }
+    figure, .puntos {
+        width: 6px;
+        height: 6px;
+    }
+    .fondo1{
+        width: 95%;
+        height: 60vh;
+    }
+    .seccPostUsuario{
+        width: 95%;
+        margin-bottom: 6vh;
+    }
+}
+@media screen and (max-width: 360px){
+    .fondo1{
+        width: 95%;
+        height: 55vh;
+    }
+    .contenidoTextPerfil h2, .contenidoTextPerfil p{
+        margin: 0;
+    }
+    .contenidoTextPerfil p{
+        font-size: 14;
+    }
+    .imgPerfilUsuario img {
+        width: 90px;
+        height: 90px;
+    }
+}
+@media screen and (max-width: 320px){
+    .container-post{
+        min-width: 315px;
+    }
+    .tableroCompartir{
+        min-width: 315px;
+    } 
+    .contenidoTextPerfil{
+        font-size: 13px ;
+    }  
+    .contenidoTextPerfil h2, .contenidoTextPerfil p{
+        margin: 0;
+    }
+    .fondo1{
+        width: 95%;
+        height: 55vh;
+    }
+    .seccPostUsuario{
+        width: 95%;
+    }
+    .datosIngreso{
+        font-size: 13px;
+    }
+    .imgPerfilUsuario img {
+        width: 80px;
+        height: 80px;
+    }
+}
+@media screen and (max-height: 360px){
+    .imgPerfilUsuario{
+        width: 80px;
+        height: 80px;
+    }
+    .fondo1{
+        width: 85%;
+        height: 70vh;
+    }
+    .seccPostUsuario{
+        width: 85%;
+    }
+    .fondo2{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        height: 30vh;
+    }
+    .btnEditar{
+        height: 10vh;
+    }
 }

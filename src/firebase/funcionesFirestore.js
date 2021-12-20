@@ -2,68 +2,147 @@ import {
   getFirestore,
   collection,
   getDocs,
+  getDoc,
   doc,
   setDoc,
   addDoc,
-  getDoc,
+  updateDoc,
+  query,
+  orderBy,
+  where,
+  serverTimestamp,
+  deleteDoc,
+  onSnapshot,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js';
 import { app } from './config.js';
 
 // inicializa el firestore
 const db = getFirestore(app);
-// referenciando la coleeción segun su nombre
-/* const colRef = collection(db, 'usuarios');
-// Obtener datos de la colección como array de objetos
-getDocs(colRef)
-  .then((snapshot) => {
-    const usuarios = [];
+
+// Obtener todos los documentos de la coleccion 'home' de firestore y mandarlo como array de objetos
+export const obtenerPosts = async (callback) => {
+  const colRef = collection(db, 'home');
+  const q = query(colRef, orderBy('timestamp'));
+  await onSnapshot(q, callback);
+
+  /* const querySnapshot = await getDocs(q).then((snapshot) => {
+    const posts = [];
     snapshot.docs.forEach((docs) => {
-      usuarios.push({ ...docs.data(), id: docs.id });
+      posts.push({ ...docs.data(), postId: docs.id });
     });
-    // eslint-disable-next-line no-console
-    console.log(usuarios);
-  }); */
+    return posts;
+  });
+  return querySnapshot; */
+};
 
-export const obtenerUsuario = async () => {
+export const obtenerUsuarios = async () => {
   const colRef = collection(db, 'usuarios');
-  const querySnapshot = await getDocs(colRef);
+  const querySnapshot = await getDocs(colRef).then((snapshot) => {
+    const posts = [];
+    snapshot.docs.forEach((docs) => {
+      posts.push({ ...docs.data(), userId: docs.id });
+    });
+    return posts;
+  });
   return querySnapshot;
 };
 
+// Obtener la data de cada usuarui guardado en Firestore, lo buscamos por id
 export const obtenerUsuarioById = async (idUser) => {
-  const colRef = doc(db, 'usuarios', idUser);
-  const querySnapshot = await getDoc(colRef).then((key) => key.data());
-  console.log(querySnapshot);
+  const docRef = doc(db, 'usuarios', idUser);
+  const querySnapshot = await getDoc(docRef).then((docs) => docs.data());
   return querySnapshot;
 };
 
-export const obtenerPosts = async () => {
-  const postsHome = collection(db, 'home');
-  const querySnapshot = await getDocs(postsHome);
-  return querySnapshot;
-};
-
-export const obtenerPostsbyId = async (byId) => {
+// Obtener una publicacion por su id
+export const obtenerPostById = async (byId) => {
   const postsHome = doc(db, 'home', byId);
   const datos = await getDoc(postsHome).then((key) => key.data());
-  console.log(datos);
   return datos;
 };
-
-// agregar usuario a Firestore
-export const agregarUsuarioConId = async (usuarioRegistro, correoRegistro, id) => {
+// Agregar data inicial al momento de registro a la coleccion usuarios
+export const agregarDataUserFS = async (id, Username, Correo, Name, Descripcion, Ubicacion) => {
   const colRefId = doc(db, 'usuarios', id);
   await setDoc(colRefId, {
-    username: usuarioRegistro,
-    correo: correoRegistro,
+    username: Name,
+    correo: Correo,
+    ubicacion: Ubicacion,
+    name: Username,
+    descripcion: Descripcion,
   });
 };
-export const subirEstadoDeUser = async (id, post) => {
+
+export const subirDataHomeCol = async (creadorPost, post, Categoria, urlImg) => {
   const colRefPost = collection(db, 'home');
   const functionAdd = await addDoc(colRefPost, {
-    usuarioId: id,
+    usuarioId: creadorPost,
     publicacion: post,
+    categoria: Categoria,
+    imgPost: urlImg,
+    timestamp: serverTimestamp(),
+    likes: [],
   });
   return functionAdd;
+};
+
+/* export const actualizarDatosPost = async (userId, creadorPost, descripcionPost) => {
+  const colRef = collection(db, 'home');
+  const q = query(colRef, where('usuarioId', '==', userId));
+  await getDocs(q).then((snapshot) => {
+    snapshot.forEach((el) => {
+      const colRefId = doc(db, 'home', el.id);
+      updateDoc(colRefId, {
+        creador: creadorPost,
+        descripcion: descripcionPost,
+      });
+    });
+  });
+}; */
+
+export const subirLikes = async (idPost, dataLikes) => {
+  const docId = doc(db, 'home', idPost);
+  await updateDoc(docId, {
+    likes: dataLikes,
+  });
+};
+
+/* -------------- Funcionalidad del perfil de usuario ------------------------*/
+/* export const getCurrentUser = (userId) => {
+  const colRefId = doc(db, 'usuarios', userId);
+  return getDoc(colRefId);
+}; */
+
+export const actualizarPerfil = (userId, name, username, ubicacion, descripcion) => {
+  const colRefId = doc(db, 'usuarios', userId);
+  return updateDoc(colRefId, {
+    username,
+    name,
+    ubicacion,
+    descripcion,
+  });
+};
+/* ---------------  Agregar  usuario a firestore desde boton de google -----------------------*/
+export const agregarGoogleUser = (id, user) => {
+  const colRefId = doc(db, 'usuarios', id);
+  return setDoc(colRefId, {
+    username: user.displayName,
+    correo: user.email,
+  });
+};
+/* ---------------- Buscar posts creados por el usuario logueado--------------------------- */
+export const obtenerUserPosts = async () => {
+  const userId = JSON.parse(sessionStorage.userSession).id;
+  const colRef = collection(db, 'home');
+  const q = query(colRef, where('usuarioId', '==', userId));
+  const querySnapshot = await getDocs(q);
+  const posts = [];
+  querySnapshot.forEach((docs) => {
+    posts.push({ ...docs.data(), id: docs.id });
+  });
+  return posts;
+};
+/* ---------------- Eliminar un post de con respecto al postId-------------------------- */
+export const eliminarPost = async (postId) => {
+  await deleteDoc(doc(db, 'home', postId));
 };

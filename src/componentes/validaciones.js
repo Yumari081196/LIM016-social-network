@@ -7,3 +7,24 @@ export const userState = () => {
     }
   });
 };
+
+export const validateSessionStorage = () => {
+  let userData = sessionStorage.getItem('userSession');
+  // console.log(userData);
+  if (!userData) {
+    userData = {
+      username: '',
+      name: '',
+      corre: '',
+      descripcion: '',
+      ubicacion: '',
+    };
+  } else {
+    userData = JSON.parse(sessionStorage.userSession);
+  }
+  return userData;
+};
+
+/* export const borrarCache = (section) => {
+  section.in
+} */

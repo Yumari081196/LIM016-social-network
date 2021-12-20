@@ -1,53 +1,99 @@
 import {
-  subirEstadoDeUser, obtenerPosts, obtenerUsuario, obtenerPostsbyId, obtenerUsuarioById,
+  obtenerPosts, obtenerPostById, subirDataHomeCol, subirLikes, obtenerUsuarios,
 } from '../firebase/funcionesFirestore.js';
+import { subirFileStorage } from '../firebase/funcionesStorage.js';
 
-const subirContainer = (creadorPost, apodoUser, postTxt, srcImagenPost) => {
+const subirContainer = (idPost, dataPost, dataCreador) => {
   const divTablero = document.createElement('div');
   divTablero.classList.add('tableroPost');
 
   divTablero.innerHTML = `
-    <div class="usuarioPost">
+    <div class="usuarioPost" id= "${idPost}">
         <div class="imgUsuarioPost"><img class="imgPost"src="imagenes/ImgUsuario3.png"></div>
         <div class="infoUsuarioPost">
-            <div class="nombreUsuarioPost"><p>${creadorPost}</p><img src="imagenes/bxs-user-plus 2.png"></div>
-            <div class="descripcionUsuarioPost"><p>${apodoUser}</p></div>
-        </div>
-        <div class="puntosHorizontales">
-            <figure class="puntos"></figure>
-            <figure class="puntos middle2"></figure>
-            <p class="equis2">x</p>
-            <figure class="puntos"></figure>
-            <ul class="desplegable2">
-                <li><a id="editar"><img src="imagenes/edit.png"><span>Editar</span></a></li>
-                <li><a id="eliminar"><img src="imagenes/delete.png"><span>Eliminar</span></a></li>
-            </ul>
+            <div class="nombreUsuarioPost"><p>${dataCreador.username}</p><img src="imagenes/bxs-user-plus 2.png"></div>
+            <div class="descripcionUsuarioPost"><p>${dataCreador.descripcion}</p></div>
         </div>
     </div>
     <div class="estadoCompartido">
         <div class="contenidoCompartido">
-            <p>${postTxt}</p>
-            <img src="${srcImagenPost}">
+            <p>${dataPost.publicacion}</p>
+            <img src="${dataPost.imgPost}">
         </div>
     </div>
     <div class="botonesReaccion">
-        <img src="imagenes/heartIcono.png">
+
+    <img src="imagenes/heartIcono.png" class="like" name= "${idPost}"><p>${dataPost.likes.length}</p>
         <img src="imagenes/comentIcono.png">
         <img src="imagenes/compartirIcono.png">
     </div>
     `;
+
   return divTablero;
 };
 
-const rellenarHome = async (conteinerPost) => {
-  const datosPost = await obtenerPosts();
-  const datosUsuario = await obtenerUsuario();
-  datosPost.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    // console.log(`${doc.id}=>${doc.data()}`);
-    conteinerPost.prepend(subirContainer('usuarioPrueba', 'prueba', doc.data().publicacion, ''));
+export const btnLikes = () => {
+  const postsCards = document.getElementsByClassName('botonesReaccion');
+  // console.log(postsCards);
+  Array.from(postsCards).forEach((postCard) => {
+    const btnLike = postCard.querySelector('.like');
+    btnLike.addEventListener('click', async () => {
+      const hijo = btnLike.getAttribute('name');
+      // const hermano = btnLike.nextElementSibling;
+      // console.log(hermano);
+      const userData = JSON.parse(sessionStorage.userSession);
+      const veamos = await obtenerPostById(hijo);
+      // console.log(veamos);
+      if (veamos.likes.includes(userData.id)) {
+        console.log('esta');
+        subirLikes(hijo, veamos.likes.filter((item) => item !== userData.id));
+        // hermano.textContent = veamos.likes.length;
+      } else {
+        console.log('no esta');
+        subirLikes(hijo, [...veamos.likes, userData.id]);
+        // hermano.textContent = veamos.likes.length;
+      }
+    });
   });
-  console.log(datosUsuario);
+};
+
+const rellenarHome = async (conteinerPost) => {
+  const usuarios = await obtenerUsuarios();
+  console.log(usuarios);
+  await obtenerPosts((querySnapshot) => {
+    querySnapshot.docChanges().forEach((change) => {
+      if (change.type === 'added') {
+        const creadorPost = usuarios.filter((user) => user.userId === change.doc.data().usuarioId);
+        console.log(creadorPost);
+        // cities.push({ ...change.doc.data(), postId: change.doc.id, changetype: 'added' });
+        conteinerPost.prepend(subirContainer(change.doc.id, change.doc.data(), creadorPost[0]));
+        btnLikes();
+      }
+      if (change.type === 'modified') {
+        const btnLike = document.getElementsByName(change.doc.id);
+        const hermano = btnLike[0].nextElementSibling;
+        hermano.textContent = change.doc.data().likes.length;
+        btnLikes();
+      }
+      if (change.type === 'removed') {
+        /* const postEliminado = document.getElementById(change.doc.id);
+        postEliminado.parentElement.remove(); */
+        console.log(('se removio algo'));
+      }
+      console.log(change);
+    });
+    /* cities.forEach((doc) => {
+        conteinerPost.prepend(subirContainer(doc.postId, doc, ''));
+      }); */
+  });
+  /* const datosPost = await obtenerPosts();
+  datosPost.forEach((doc) => {
+    conteinerPost.prepend(subirContainer(doc.postId, doc, ''));
+    const btnLike = document.querySelector('.like');
+    const hermano = btnLike.nextElementSibling;
+    hermano.textContent = doc.likes.length;
+  });
+  btnLikes(); */
 };
 
 export const seccionMuro2 = () => {
@@ -66,16 +112,16 @@ export const seccionMuro2 = () => {
         </a>
     </li>
     <li class="list">
-        <a>
+        <a href="#/artmuro">
             <span class="icon">
                 <img src="imagenes/house-fill.png">
             </span>
         </a>
     </li>
     <li class="list">
-        <a>
+        <a href="#/artperfil">
             <span class="icon">
-                <img src="imagenes/imgUsuario.png">
+                <img src="imagenes/ImgUsuario.png">
             </span>
         </a>
     </li>
@@ -87,14 +133,15 @@ export const seccionMuro2 = () => {
   tableroCompartir.innerHTML = `
     <input type="text" placeholder="¿Qué quieres reportar?" id="inputCompartir">
     <div class="botones">
-        <button class="botonCompartirImagen"><img src="imagenes/botonCompartirImagen.png"></button>
+        <input type="file" placeholder="Añadir Imagen" id="compartirImg">
+        <!--<button class="botonCompartirImagen" id="compartirImg"><img src="imagenes/botonCompartirImagen.png"></button>-->
         <select name="Grupo" id="Grupo" class="Grupo">
-            <option value="value1">Refugios</option>
-            <option value="value2" selected>Reportar perdidos</option>
-            <option value="value3">Adoptar</option>
-            <option value="value4">Lugares</option>
-            <option value="value5">Donaciones</option>
-            <option value="value6"></option>
+            <option value="value0" selected>Selecciona un grupo...</option>
+            <option value="Refugios">Refugios</option>
+            <option value="Reportar Perdidos">Reportar perdidos</option>
+            <option value="Adoptar">Adoptar</option>
+            <option value="Lugares">Lugares</option>
+            <option value="Donaciones">Donaciones</option>
         </select>
         <button class="botonCompartir">Compartir</button>
     </div>
@@ -102,7 +149,6 @@ export const seccionMuro2 = () => {
   const contenedorPublicaciones = document.createElement('div');
   contenedorPublicaciones.classList.add('container-post');
   contenedorPublicaciones.setAttribute('id', 'container-post');
-  contenedorPublicaciones.prepend(subirContainer('Maria Casas', 'catLover', 'Adoptar una mascota es cambiar dos vidas: la de la mascota que al fin olvidará sus duros días sin familia y la de quien se convertirá en su dueño y tendrá días cargados de amor. Si te interesa acoger a un nuevo miembro en tu hogar, estas son algunas de las muchas opciones que encuentras para adoptar animales en Lima.', ''));
   rellenarHome(contenedorPublicaciones);
 
   segundaSeccion.appendChild(navInferior);
@@ -111,31 +157,61 @@ export const seccionMuro2 = () => {
   return segundaSeccion;
 };
 
-export const publicarHome = (formCompartir, containerPost) => {
+export const creacionPost = (formCompartir/* , containerPost */) => {
   const divCompartir = document.getElementById(formCompartir);
-  const containerPosts = document.getElementById(containerPost);
-  divCompartir.addEventListener('submit', (e) => {
+  // const containerPosts = document.getElementById(containerPost);
+
+  let urlImg = [];
+  const btnImg = document.getElementById('compartirImg');
+  btnImg.addEventListener('change', async (e) => {
+    urlImg.push(e.target.files[0]);
+  });
+
+  let categoriaSelect = [];
+  const botonSelector = document.getElementById('Grupo');
+  botonSelector.addEventListener('change', (e) => {
+    categoriaSelect.push(e.target.value);
+  });
+
+  divCompartir.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const inputCompartir = document.getElementById('inputCompartir').value;
-    const user = sessionStorage.getItem('usuarioId');
-    subirEstadoDeUser(user, inputCompartir).then(async (doc) => {
-      const userById = await obtenerUsuarioById(user);
-      const post = await obtenerPostsbyId(doc.id);
-      containerPosts.prepend(subirContainer(userById.username, 'prueba', post.publicacion, ''));
-    });
-    divCompartir.reset();
+    let categoria = categoriaSelect[categoriaSelect.length - 1];
+    const postTxt = document.getElementById('inputCompartir').value;
+    const userData = JSON.parse(sessionStorage.userSession);
+    if (categoria === undefined) categoria = 'inicio';
+    // console.log(urlImg[urlImg.length - 1]);
+    if (urlImg.length === 0) {
+      await subirDataHomeCol(userData.id, postTxt, categoria, '');
+      /* .then((doc) => {
+        obtenerPostById(doc.id).then((postsById) => {
+          containerPosts.prepend(subirContainer(doc.id, postsById, ''));
+        });
+      }); */
+      categoriaSelect = [];
+      divCompartir.reset();
+    } else {
+      const archivo = await subirFileStorage(urlImg[urlImg.length - 1]);
+      await subirDataHomeCol(userData.id, postTxt, categoria, archivo);
+      /* .then((doc) => {
+        obtenerPostById(doc.id).then((postsById) => {
+          containerPosts.prepend(subirContainer(doc.id, postsById, ''));
+        });
+      }); */
+      categoriaSelect = [];
+      divCompartir.reset();
+      urlImg = [];
+    }
+    // console.log(archivo);
   });
 };
 
-export const menuPuntosHorizontales = () => {
+/* export const menuPuntosHorizontales = () => {
   const puntosHorizontales = document.querySelector('.puntosHorizontales');
   const middle2 = document.querySelector('.middle2');
-  const equis2 = document.querySelector('.equis2');
   const desplegable2 = document.querySelector('.desplegable2');
-
   puntosHorizontales.addEventListener('click', () => {
     middle2.classList.toggle('active');
-    equis2.classList.toggle('active');
     desplegable2.classList.toggle('active');
   });
 };
+ */
