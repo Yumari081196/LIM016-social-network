@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import {
   getFirestore,
   collection,
@@ -14,27 +13,17 @@ import {
   serverTimestamp,
   deleteDoc,
   onSnapshot,
-// eslint-disable-next-line import/no-unresolved
-} from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js';
-import { app } from './config.js';
+  app,
+} from './config.js';
 
 // inicializa el firestore
 const db = getFirestore(app);
 
-// Obtener todos los documentos de la coleccion 'home' de firestore y mandarlo como array de objetos
+// Obtener todos los documentos de la coleccion 'post' usando onsnapshot
 export const obtenerPosts = async (callback) => {
-  const colRef = collection(db, 'home');
+  const colRef = collection(db, 'posts');
   const q = query(colRef, orderBy('timestamp'));
   await onSnapshot(q, callback);
-
-  /* const querySnapshot = await getDocs(q).then((snapshot) => {
-    const posts = [];
-    snapshot.docs.forEach((docs) => {
-      posts.push({ ...docs.data(), postId: docs.id });
-    });
-    return posts;
-  });
-  return querySnapshot; */
 };
 
 export const obtenerUsuarios = async () => {
@@ -50,18 +39,12 @@ export const obtenerUsuarios = async () => {
 };
 
 // Obtener la data de cada usuarui guardado en Firestore, lo buscamos por id
-export const obtenerUsuarioById = async (idUser) => {
-  const docRef = doc(db, 'usuarios', idUser);
+export const obtenerById = async (idUser, nameColeccion) => {
+  const docRef = doc(db, nameColeccion, idUser);
   const querySnapshot = await getDoc(docRef).then((docs) => docs.data());
   return querySnapshot;
 };
 
-// Obtener una publicacion por su id
-export const obtenerPostById = async (byId) => {
-  const postsHome = doc(db, 'home', byId);
-  const datos = await getDoc(postsHome).then((key) => key.data());
-  return datos;
-};
 // Agregar data inicial al momento de registro a la coleccion usuarios
 export const agregarDataUserFS = async (id, Username, Correo, Name, Descripcion, Ubicacion) => {
   const colRefId = doc(db, 'usuarios', id);
@@ -75,7 +58,7 @@ export const agregarDataUserFS = async (id, Username, Correo, Name, Descripcion,
 };
 
 export const subirDataHomeCol = async (creadorPost, post, Categoria, urlImg) => {
-  const colRefPost = collection(db, 'home');
+  const colRefPost = collection(db, 'posts');
   const functionAdd = await addDoc(colRefPost, {
     usuarioId: creadorPost,
     publicacion: post,
@@ -87,22 +70,8 @@ export const subirDataHomeCol = async (creadorPost, post, Categoria, urlImg) => 
   return functionAdd;
 };
 
-/* export const actualizarDatosPost = async (userId, creadorPost, descripcionPost) => {
-  const colRef = collection(db, 'home');
-  const q = query(colRef, where('usuarioId', '==', userId));
-  await getDocs(q).then((snapshot) => {
-    snapshot.forEach((el) => {
-      const colRefId = doc(db, 'home', el.id);
-      updateDoc(colRefId, {
-        creador: creadorPost,
-        descripcion: descripcionPost,
-      });
-    });
-  });
-}; */
-
 export const subirLikes = async (idPost, dataLikes) => {
-  const docId = doc(db, 'home', idPost);
+  const docId = doc(db, 'posts', idPost);
   await updateDoc(docId, {
     likes: dataLikes,
   });
@@ -134,7 +103,7 @@ export const agregarGoogleUser = (id, user) => {
 /* ---------------- Buscar posts creados por el usuario logueado--------------------------- */
 export const obtenerUserPosts = async () => {
   const userId = JSON.parse(sessionStorage.userSession).id;
-  const colRef = collection(db, 'home');
+  const colRef = collection(db, 'posts');
   const q = query(colRef, where('usuarioId', '==', userId));
   const querySnapshot = await getDocs(q);
   const posts = [];
@@ -145,11 +114,19 @@ export const obtenerUserPosts = async () => {
 };
 /* ---------------- Eliminar un post de con respecto al postId-------------------------- */
 export const eliminarPost = async (postId) => {
-  await deleteDoc(doc(db, 'home', postId));
+  await deleteDoc(doc(db, 'posts', postId));
+};
+
+/* ---------------- Editar un post en especifico ----------------------------------- */
+export const actualizarPost = (postId, publicacion) => {
+  const colRefId = doc(db, 'posts', postId);
+  return updateDoc(colRefId, {
+    publicacion,
+  });
 };
 /* ---------------- Obtener posts de la seccion grupos por categoria--------------------------- */
 export const obtenerPostsGrupo = async (grupoCategoria) => {
-  const colRef = collection(db, 'home');
+  const colRef = collection(db, 'posts');
   const q = query(colRef, where('categoria', '==', grupoCategoria));
   const querySnapshot = await getDocs(q).then((snapshot) => {
     const posts = [];

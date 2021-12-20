@@ -2,7 +2,7 @@ import { subirContainer } from './seccionSecMuro.js';
 import {
   obtenerPostsGrupo,
   obtenerUsuarios,
-  obtenerPostById,
+  obtenerById,
   subirLikes,
 } from '../firebase/funcionesFirestore.js';
 
@@ -11,32 +11,38 @@ export const btnLikes1 = () => {
   // console.log(postsCards);
   Array.from(postsCards).forEach((postCard) => {
     const btnLike = postCard.querySelector('.like');
+    const userData = JSON.parse(sessionStorage.userSession);
     btnLike.addEventListener('click', async () => {
       const hijo = btnLike.getAttribute('name');
       const hermano = btnLike.nextElementSibling;
-      // console.log(hermano);
-      const userData = JSON.parse(sessionStorage.userSession);
-      const veamos = await obtenerPostById(hijo);
-      // console.log(veamos);
+      const veamos = await obtenerById(hijo, 'posts');
+
       if (veamos.likes.includes(userData.id)) {
-        console.log('esta');
         subirLikes(hijo, veamos.likes.filter((item) => item !== userData.id));
-        hermano.textContent = veamos.likes.length;
+        hermano.textContent = veamos.likes.length - 1;
+        btnLike.style.color = '#8F7D7D';
+        //
       } else {
-        console.log('no esta');
         subirLikes(hijo, [...veamos.likes, userData.id]);
-        hermano.textContent = veamos.likes.length;
+        hermano.textContent = veamos.likes.length + 1;
+        btnLike.style.color = 'red';
       }
     });
   });
 };
 
 const mostrarPostPorCategoria = async (containerPost, grupo) => {
+  const userData = JSON.parse(sessionStorage.userSession);
   const usuarios = await obtenerUsuarios();
   const datosPost = await obtenerPostsGrupo(grupo);
   datosPost.forEach((docs) => {
     const creadorPost = usuarios.filter((user) => user.userId === docs.usuarioId);
     containerPost.prepend(subirContainer(docs.postId, docs, creadorPost[0]));
+    if (docs.likes.includes(userData.id)) {
+      document.getElementsByName(docs.postId)[0].style.color = 'red';
+    } else {
+      document.getElementsByName(docs.postId)[0].style.color = '#8F7D7D';
+    }
   });
   btnLikes1();
 };
@@ -50,7 +56,7 @@ export const contenidoCategoria = (imgsrc, tituloCategoria) => {
   navInferior.innerHTML = `
         <ul>
         <li class="list">
-            <a>
+            <a class="abrirModal">
                 <span class="icon">
                     <img src="imagenes/users-three.png">
                 </span>

@@ -1,139 +1,10 @@
-import { obtenerUserPosts, eliminarPost } from '../firebase/funcionesFirestore.js';
+import {
+  obtenerUserPosts, eliminarPost, actualizarPost, obtenerUsuarios,
+} from '../firebase/funcionesFirestore.js';
+import { btnLikes1 } from './categorias.js';
 import { validateSessionStorage } from './validaciones.js';
-/* export const contenidoPerfil = () => {
-  const perfilSeccion = document.createElement('section');
-  perfilSeccion.classList.add('cuerpoPerfil');
-  const userData = JSON.parse(sessionStorage.userSession);
-  perfilSeccion.innerHTML = `
-        <nav class= "barraNavegacionInferior">
-            <ul>
-                <li class="list">
-                    <a>
-                        <span class="icon">
-                            <img src="imagenes/users-three.png">
-                        </span>
-                    </a>
-                </li>
-                <li class="list">
-                    <a href="#/artmuro">
-                        <span class="icon">
-                            <img src="imagenes/house-fill.png">
-                        </span>
-                    </a>
-                </li>
-                <li class="list">
-                    <a>
-                        <span class="icon">
-                            <img src="imagenes/ImgUsuario.png">
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="fondo1">
-            <div class="fondoImagenPerfil">
-                <img src="imagenes/ImgDelUsuario.png">
-            </div>
-            <div class="fondo2">
-                <div class="imgPerfilUsuario">
-                    <img src="imagenes/ImgUsuario.png">
-                </div>
-                <div class="contenidoTextPerfil">
-                    <h2>${userData.username}</h2>
-                    <p>${userData.descripcion}</p>
-                    <p>Soy de ${userData.ubicacion}</p>
-                </div>
 
-                <div class="botonesDelPerfil">
-                    <button class="btnEditar"><a href='#/arteditarperfil'>Editar Perfil</a></button>
-                    <button class="btnInicio"><a href="#/artmuro">Volver a Inicio</a></button>
-                </div>
-            </div>
-        </div>
-        <button class="btnEditar"><a href='#/arteditarperfil'>Editar Perfil</a></button>
-
-        <div class="seccPostUsuario" id="SeccPublicacionesUsuario">
-            <div class="tableroPost">
-                <div class="usuarioPost">
-                    <div class="imgUsuarioPost">
-                        <img class="imgPost"src="imagenes/ImgUsuario.png">
-                    </div>
-                    <div class="infoUsuarioPost">
-                        <div class="nombreUsuarioPost">
-                            <p>Lucía Lopez</p><img src="imagenes/bxs-user-plus 2.png">
-                        </div>
-                        <div class="descripcionUsuarioPost">
-                             <p>Amante de los animales</p>
-                        </div>
-                    </div>
-                    <div class="puntosHorizontales">
-                        <figure class="puntos"></figure>
-                        <figure class="puntos middle2"></figure>
-                        <figure class="puntos"></figure>
-                        <ul class="desplegable2" id="menuListaPost">
-                            <li><a><img src="imagenes/edit.png"><span>Editar</span></a></li>
-                            <li><a><img src="imagenes/delete.png"><span>Eliminar</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="estadoCompartido">
-                    <div class="contenidoCompartido">
-                        <p></p>
-                        <img src="imagenes/gatitoFoto.png">
-                    </div>
-                </div>
-
-                <div class="botonesReaccion">
-                    <img src="imagenes/heartIcono.png">
-                    <img src="imagenes/comentIcono.png">
-                    <img src="imagenes/compartirIcono.png">
-                </div>
-            </div>
-
-            <div class="tableroPost">
-                <div class="usuarioPost">
-                    <div class="imgUsuarioPost">
-                        <img class="imgPost"src="imagenes/ImgUsuario.png">
-                    </div>
-                    <div class="infoUsuarioPost">
-                        <div class="nombreUsuarioPost">
-                            <p>Lucía Lopez</p><img src="imagenes/bxs-user-plus 2.png">
-                        </div>
-                        <div class="descripcionUsuarioPost">
-                            <p>Amante de los animales</p>
-                        </div>
-                    </div>
-                    <div class="puntosHorizontales">
-                        <figure class="puntos"></figure>
-                        <figure class="puntos middle2"></figure>
-                        <figure class="puntos"></figure>
-                        <ul class="desplegable2" >
-                            <li><a><img src="imagenes/edit.png"><span>Editar</span></a></li>
-                            <li><a><img src="imagenes/delete.png"><span>Eliminar</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="estadoCompartido">
-                    <div class="contenidoCompartido">
-                        <p>A veces me preguntan: ¿Por qué inviertes todo ese tiempo y dinero hablando de la amabilidad para con los animales, cuando existe tanta crueldad hacia el hombre?. A lo que yo respondo: 
-                         Estoy trabajando en las raíces.</p>
-                        <img src="">
-                    </div>
-                </div>
-
-                <div class="botonesReaccion">
-                    <img src="imagenes/heartIcono.png">
-                    <img src="imagenes/comentIcono.png">
-                    <img src="imagenes/compartirIcono.png">
-                </div>
-            </div>
-        </div>`;
-  return perfilSeccion;
-}; */
-
-const subirContainer = (idPost, creadorPost, apodoUser, postTxt, srcImagenPost) => {
+const subirContainer = (idPost, dataCreador, dataPost) => {
   const divPost = document.createElement('div');
   divPost.classList.add('tableroPost');
 
@@ -141,19 +12,21 @@ const subirContainer = (idPost, creadorPost, apodoUser, postTxt, srcImagenPost) 
     <div class="usuarioPost" id="${idPost}">
         <div class="imgUsuarioPost"><img class="imgPost"src="imagenes/ImgUsuario3.png"></div>
         <div class="infoUsuarioPost">
-            <div class="nombreUsuarioPost"><p>${creadorPost}</p><img src="imagenes/bxs-user-plus 2.png"></div>
-            <div class="descripcionUsuarioPost"><p>${apodoUser}</p></div>
+            <div class="nombreUsuarioPost"><p>${dataCreador.username}</p><img src="imagenes/bxs-user-plus 2.png"></div>
+            <div class="descripcionUsuarioPost"><p>${dataCreador.descripcion}</p></div>
         </div>
+        <button class="btnEdit"><img src="imagenes/edit.png"></button>
         <button class="btnDelete"><img src="imagenes/delete.png"></button>
     </div>
     <div class="estadoCompartido">
         <div class="contenidoCompartido">
-            <p>${postTxt}</p>
-            <img src="${srcImagenPost}">
+            <p class="postcontent">${dataPost.publicacion}</p>
+            <img src="${dataPost.imgPost}">
         </div>
     </div>
     <div class="botonesReaccion">
-        <img src="imagenes/heartIcono.png">
+        <i class="ph-heart-bold like" name= "${idPost}"}></i>
+        <p>${dataPost.likes.length}</p>
         <img src="imagenes/comentIcono.png">
         <img src="imagenes/compartirIcono.png">
     </div>
@@ -163,10 +36,13 @@ const subirContainer = (idPost, creadorPost, apodoUser, postTxt, srcImagenPost) 
 
 export const btnEliminarPost = () => {
   const postsCards = document.getElementsByClassName('usuarioPost');
-  // console.log(postsCards);
   Array.from(postsCards).forEach((postCard) => {
     const btnEliminar = postCard.querySelector('.btnDelete');
     btnEliminar.addEventListener('click', async () => {
+      const confirmarcion = window.confirm('¿Esta seguro que quiere eliminar el post?');
+      if (!confirmarcion) {
+        return;
+      }
       const postEliminado = document.getElementById(postCard.id);
       await eliminarPost(postCard.id);
       console.log('si elimino el post');
@@ -175,13 +51,74 @@ export const btnEliminarPost = () => {
   });
 };
 
-const rellenarPerfil = async (containerPost) => {
-  const datosPost = await obtenerUserPosts();
-  const userData = JSON.parse(sessionStorage.userSession);
-  datosPost.forEach((post) => {
-    containerPost.prepend(subirContainer(post.id, userData.username, userData.descripcion, post.publicacion, ''));
+const editarPost = (postCard) => {
+  const formularioEditar = document.createElement('form');
+  formularioEditar.classList.add('editForm');
+  formularioEditar.innerHTML = `
+    <textarea id="inputEditar" name="inputEditar" rows="5" cols="33"></textarea>    
+    <div class="">
+        <button class="botonGuardarCambios">Guardar</button>
+        <button class="botonCancelarCambios">Cancelar</button>  
+    </div>
+`;
+  const botonGuardarCambios = formularioEditar.querySelector('.botonGuardarCambios');
+  const botonCancelarCambios = formularioEditar.querySelector('.botonCancelarCambios');
+  const estadoCompartido = postCard.querySelector('.estadoCompartido');
+
+  const contenidoCompartido = estadoCompartido.firstElementChild;
+  formularioEditar.firstElementChild.value = contenidoCompartido.firstElementChild.textContent;
+
+  // borramos el texto y agregamos el formulario de edicion
+  estadoCompartido.innerHTML = '';
+  estadoCompartido.appendChild(formularioEditar);
+
+  botonCancelarCambios.addEventListener('click', (e) => {
+    e.preventDefault();
+    estadoCompartido.innerHTML = '';
+    estadoCompartido.appendChild(contenidoCompartido);
   });
+
+  botonGuardarCambios.addEventListener('click', (e) => {
+    e.preventDefault();
+    const postId = postCard.firstElementChild.id;
+    const form = e.target.parentElement.parentElement;
+    const changedText = form.firstElementChild.value;
+    actualizarPost(postId, changedText)
+      .then(() => {
+        console.log('sabemos si funciono');
+        contenidoCompartido.firstElementChild.textContent = changedText;
+        estadoCompartido.innerHTML = '';
+        estadoCompartido.appendChild(contenidoCompartido);
+      });
+  });
+};
+
+export const btnEditarPost = () => {
+  const postsCards = document.getElementsByClassName('tableroPost');
+  Array.from(postsCards).forEach((postCard) => {
+    const btnPencil = postCard.querySelector('.btnEdit');
+    btnPencil.addEventListener('click', async () => {
+      editarPost(postCard);
+    });
+  });
+};
+
+const rellenarPerfil = async (containerPost) => {
+  const userData = JSON.parse(sessionStorage.userSession);
+  const usuarios = await obtenerUsuarios();
+  const datosPost = await obtenerUserPosts();
+  datosPost.forEach((post) => {
+    const dataCreador = usuarios.filter((user) => user.userId === post.usuarioId);
+    containerPost.prepend(subirContainer(post.id, dataCreador[0], post));
+    if (post.likes.includes(userData.id)) {
+      document.getElementsByName(post.id)[0].style.color = 'red';
+    } else {
+      document.getElementsByName(post.id)[0].style.color = '#8F7D7D';
+    }
+  });
+  btnLikes1();
   btnEliminarPost();
+  btnEditarPost();
 };
 
 export const contenidoPerfil = () => {
@@ -195,7 +132,7 @@ export const contenidoPerfil = () => {
   navInferior.innerHTML = `
       <ul>
       <li class="list">
-          <a>
+          <a class="abrirModal">
               <span class="icon">
                   <img src="imagenes/users-three.png">
               </span>
@@ -230,8 +167,8 @@ export const contenidoPerfil = () => {
 
             <div class="contenidoTextPerfil">
                 <h2>${userData.username}</h2>
-                <p>(${userData.name})</p>
-                <p>"${userData.descripcion}"</p>
+                <p>${userData.name}</p>
+                <p>${userData.descripcion}</p>
                 <p>${userData.ubicacion}</p>
             </div>
 
@@ -241,24 +178,22 @@ export const contenidoPerfil = () => {
             </div>
         </div>
     `;
+
   const btnEditarPerfilResponsive = document.createElement('button');
   btnEditarPerfilResponsive.classList.add('btnEditar');
   btnEditarPerfilResponsive.innerHTML = `
         <a href='#/arteditarperfil'>Editar Perfil</a>
     `;
+
   const contenedorPublicacionesPerfil = document.createElement('div');
   contenedorPublicacionesPerfil.classList.add('seccPostUsuario');
   contenedorPublicacionesPerfil.setAttribute('id', 'SeccPublicacionesUsuario');
-  // contenedorPublicacionesPerfil.prepend(
-  // subirContainer('Prueba', 'Amante De Los Animales', 'A veces me preguntan:
-  // ¿Por qué inviertes todo ese tiempo y dinero hablando de la amabilidad para con los animales,
-  // cuando existe tanta crueldad hacia el hombre?. A lo que yo
-  // respondo: Estoy trabajando en las raíces.', ''));
   rellenarPerfil(contenedorPublicacionesPerfil);
 
   perfilSeccion.appendChild(navInferior);
   perfilSeccion.appendChild(tableroInformacionUsuario);
   perfilSeccion.appendChild(btnEditarPerfilResponsive);
   perfilSeccion.appendChild(contenedorPublicacionesPerfil);
+
   return perfilSeccion;
 };

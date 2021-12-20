@@ -7,9 +7,9 @@ import {
   muroEditarPerfil,
   seccionCategorias,
 } from '../componentes/muro.js';
-import { cerrarSesion, menuPuntosVerticales } from '../componentes/headerMuro.js';
+import { cerrarSesion, menuPuntosVerticales, modalCategorias } from '../componentes/headerMuro.js';
 import { userState } from '../componentes/validaciones.js';
-import { creacionPost, modalCategorias } from '../componentes/seccionSecMuro.js';
+import { creacionPost } from '../componentes/seccionSecMuro.js';
 import { btnEditarPerfil } from '../componentes/seccionEditarPerfil.js';
 
 export const vistasPantalla = () => {
@@ -40,6 +40,7 @@ export const vistasPantalla = () => {
       main.appendChild(seccionCategorias('imagenes/iconoRefugioMascotas.png', 'Refugios'));
       cerrarSesion();
       menuPuntosVerticales();
+      modalCategorias();
       break;
 
     case '#/artmascotasperdidas':
@@ -47,6 +48,7 @@ export const vistasPantalla = () => {
       main.appendChild(seccionCategorias('imagenes/reportarIcono.png', 'Mascotas Perdidas'));
       cerrarSesion();
       menuPuntosVerticales();
+      modalCategorias();
       break;
 
     case '#/artadoptar':
@@ -54,6 +56,7 @@ export const vistasPantalla = () => {
       main.appendChild(seccionCategorias('imagenes/adoptarIcono.png', 'Adoptar'));
       cerrarSesion();
       menuPuntosVerticales();
+      modalCategorias();
       break;
 
     case '#/artlugares':
@@ -61,6 +64,7 @@ export const vistasPantalla = () => {
       main.appendChild(seccionCategorias('imagenes/localizacionIcono.png', 'Lugares'));
       cerrarSesion();
       menuPuntosVerticales();
+      modalCategorias();
       break;
 
     case '#/artdonaciones':
@@ -68,6 +72,7 @@ export const vistasPantalla = () => {
       main.appendChild(seccionCategorias('imagenes/medicinasIcono.png', 'Donaciones'));
       cerrarSesion();
       menuPuntosVerticales();
+      modalCategorias();
       break;
 
     case '#/artperfil':
@@ -75,6 +80,7 @@ export const vistasPantalla = () => {
       main.appendChild(muroPerfil());
       cerrarSesion();
       menuPuntosVerticales();
+      modalCategorias();
       /* menuPuntosHorizontales(); */
       break;
 
@@ -83,6 +89,7 @@ export const vistasPantalla = () => {
       main.appendChild(muroEditarPerfil());
       cerrarSesion();
       menuPuntosVerticales();
+      modalCategorias();
       btnEditarPerfil();
       break;
 
