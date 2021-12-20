@@ -3,6 +3,7 @@ import { seccionMuro1 } from './secionFirstMuro.js';
 import { seccionMuro2 } from './seccionSecMuro.js';
 import { contenidoPerfil } from './seccionPerfil.js';
 import { contenidoEditarPerfil } from './seccionEditarPerfil.js';
+import { contenidoCategoria } from './categorias.js';
 
 export const muro = (/* parametro de la seccion2 */) => {
   const articleMuro = document.createElement('article');
@@ -59,4 +60,21 @@ export const muroEditarPerfil = () => {
   articleMuroEditarPerfil.appendChild(divSeccionEditarPerfilusuario);
 
   return articleMuroEditarPerfil;
+};
+
+export const seccionCategorias = (img, tituloCategoria) => {
+  const articleRefugio = document.createElement('article');
+
+  const headerMuro = document.createElement('header');
+  headerMuro.classList.add('item1');
+  headerMuro.innerHTML = contenidoHeader();
+
+  const divSecciones = document.createElement('div');
+  divSecciones.classList.add('grid-container');
+  divSecciones.appendChild(seccionMuro1());
+  divSecciones.appendChild(contenidoCategoria(img, tituloCategoria));
+
+  articleRefugio.appendChild(headerMuro);
+  articleRefugio.appendChild(divSecciones);
+  return articleRefugio;
 };

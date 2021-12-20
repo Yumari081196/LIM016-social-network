@@ -3,6 +3,8 @@ import { validateSessionStorage } from './validaciones.js';
 
 export const contenidoHeader = () => {
   const userData = validateSessionStorage();
+  // sessionStorage.setItem('userSession', JSON.stringify(data));
+  // const userData = JSON.parse(sessionStorage.userSession);
   const headerMuro = `
         <div class="enlacePerfil">
             <img src="imagenes/ImgUsuario.png" class="imagenUsuario">

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {
   getFirestore,
   collection,
@@ -145,4 +146,17 @@ export const obtenerUserPosts = async () => {
 /* ---------------- Eliminar un post de con respecto al postId-------------------------- */
 export const eliminarPost = async (postId) => {
   await deleteDoc(doc(db, 'home', postId));
+};
+/* ---------------- Obtener posts de la seccion grupos por categoria--------------------------- */
+export const obtenerPostsGrupo = async (grupoCategoria) => {
+  const colRef = collection(db, 'home');
+  const q = query(colRef, where('categoria', '==', grupoCategoria));
+  const querySnapshot = await getDocs(q).then((snapshot) => {
+    const posts = [];
+    snapshot.docs.forEach((docs) => {
+      posts.push({ ...docs.data(), postId: docs.id });
+    });
+    return posts;
+  });
+  return querySnapshot;
 };

@@ -42,7 +42,7 @@ export const contenidoEditarPerfil = () => {
                         </div>
                         <div class="infActualDelUsuario" id="infActualDelUsuario">
                             <div class="imgPerfilUsuario">
-                                <img src="imagenes/ImgUsuario.png">
+                            <img src="imagenes/ImgUsuario.png">
                             </div>
 
                             <div class="contenidoTextPerfil">
@@ -56,6 +56,7 @@ export const contenidoEditarPerfil = () => {
 
                     <div class="modalFormulario" id="modalFormulario">
                         <form id="formIngreso">
+              
                             <div class="cajaImputDatos">
                                 <p class="textSeccActualizacion" id="">Usuario:</p>
                                 <input type="text" id="actualizacionUsuario" class="datosParaActualizar" autocapitalize="sentence">
@@ -107,14 +108,25 @@ export const btnEditarPerfil = () => {
     const inputDescripcionActualizado = document.getElementById('actualizacionEstado').value;
     const inputUbicacionActualizado = document.getElementById('actualizacionUbicacion').value;
     const userData = JSON.parse(sessionStorage.userSession);
-    actualizarPerfil(userData.id, inputNombreActualizado, inputusuarioActualizado,  inputUbicacionActualizado, inputDescripcionActualizado)
+    actualizarPerfil(
+      userData.id,
+      inputNombreActualizado,
+      inputusuarioActualizado,
+      inputUbicacionActualizado,
+      inputDescripcionActualizado,
+    )
       .then(() => {
         userData.username = inputusuarioActualizado;
         userData.name = inputNombreActualizado;
         userData.ubicacion = inputUbicacionActualizado;
         userData.descripcion = inputDescripcionActualizado;
         sessionStorage.setItem('userSession', JSON.stringify(userData));
-        actualizarDatosPerfil(inputusuarioActualizado, inputNombreActualizado, inputUbicacionActualizado, inputDescripcionActualizado);
+        actualizarDatosPerfil(
+          inputusuarioActualizado,
+          inputNombreActualizado,
+          inputUbicacionActualizado,
+          inputDescripcionActualizado,
+        );
       });
   });
 };
