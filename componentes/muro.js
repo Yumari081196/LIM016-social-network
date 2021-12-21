@@ -1,7 +1,11 @@
-import { contenidoHeader } from './headerMuro.js';
-import { seccionMuro1 } from './secionFirstMuro.js';
+import { contenidoHeader, seccionModal } from './headerMuro.js';
+import { seccionMuro1, categoriasDesktop } from './secionFirstMuro.js';
 import { seccionMuro2 } from './seccionSecMuro.js';
+import { contenidoPerfil } from './seccionPerfil.js';
+import { contenidoEditarPerfil } from './seccionEditarPerfil.js';
+import { contenidoCategoria } from './categorias.js';
 
+// Render de la sección muro
 export const muro = () => {
   const articleMuro = document.createElement('article');
   articleMuro.classList.add('artMuro');
@@ -11,91 +15,90 @@ export const muro = () => {
   headerMuro.classList.add('item1');
   headerMuro.innerHTML = contenidoHeader();
 
+  const seccionModalCategoria = document.createElement('div');
+  seccionModalCategoria.classList.add('modalCategoria');
+  seccionModalCategoria.innerHTML = seccionModal();
+
   const divSecciones = document.createElement('div');
   divSecciones.classList.add('grid-container');
-  divSecciones.appendChild(seccionMuro1());
+  divSecciones.appendChild(seccionMuro1(categoriasDesktop));
   divSecciones.appendChild(seccionMuro2());
 
   articleMuro.appendChild(headerMuro);
+  articleMuro.appendChild(seccionModalCategoria);
   articleMuro.appendChild(divSecciones);
   return articleMuro;
 };
 
-/* export const divMuro = `
-<article class="artMuro"  id="artmuro">
-    <header class="item1">
-        <img src="imagenes/ImgUsuario.png" width="75px" height="75px">
-        <img src="imagenes/CarePets.png" width="250px" height="50px" >
-        <img id="cerrar-sesion" src="imagenes/sign-out 1.png" width="40px" height="40px" >
-    </header>
-    <div class="grid-container">
-        <section class="item2">
-            <section class="secUsuario">
-                <div class="contenedorPortada">
-                    <img src="imagenes/ImgDelUsuario.png">
-                </div>
-                <div class="contenedorPerfil">
-                    <div class="ImgCentralUsuario">
-                        <img src="imagenes/ImgUsuario.png">
-                    </div>
-                    <div class="datosUsuario">
-                        <h2 class="nombreUsuario">Usuario</h2>
-                        <h3 class="estadoUsuario">Amante de los animales</h3>
-                    </div>
-                </div>
-            </section>
-            <section class="secCategorias">
-                <h1>Explorar</h1>
-                <div>
-                    <div class="categoriaUnica">
-                        <img src="imagenes/refugioIcono.png" >
-                        <p>Refugio</p>
-                    </div>
-                    <div class="categoriaUnica">
-                        <img src="imagenes/reportarIcono.png" >
-                        <p>Mascotas perdidas</p>
-                    </div>
-                    <div class="categoriaUnica">
-                        <img src="imagenes/adoptarIcono.png" >
-                        <p>Adoptar</p>
-                    </div>
-                    <div class="categoriaUnica">
-                        <img src="imagenes/localizacionIcono.png" >
-                        <p>Localización</p>
-                    </div>
-                    <div class="categoriaUnica">
-                        <img src="imagenes/medicinasIcono.png" >
-                        <p>Medicinas</p>
-                    </div>
-                </div>
-            </section>
-        </section>
+// Render de la sección perfil del usuario
+export const muroPerfil = () => {
+  const articleMuroPerfil = document.createElement('article');
+  articleMuroPerfil.classList.add('artPerfil');
+  articleMuroPerfil.setAttribute('id', 'artPerfil');
 
-        <section class="item3"> <!-- main -->
-            <div class="tableroCompartir">
-                <input type="text" placeholder="¿Qué quieres reportar?">
-                <div class="botones">
-                    <button class="botonCompartirImagen">
-                      <img src="imagenes/botonCompartirImagen.png">
-                    </button>
-                    <button class="botonCompartir">Compartir</button>
-                </div>
-            </div>
-            <div class="tableroPost">
-                <div class="usuarioPost">
-                    <div class="infoUsuarioPost">
-                    </div>
-                    <img>
-                </div>
-                <div class="estadoCompartido"></div>
-                <div class="botonesReaccion">
-                    <img src="imagenes/heartIcono.png">
-                    <img src="imagenes/comentIcono.png">
-                    <img src="imagenes/compartirIcono.png">
-                    <img src="imagenes/emojiIcono.png">
-                </div>
-            </div>
-        </section>
-    </div>
-    <footer class="item4"></footer>
-</article>`; */
+  const headerMuro = document.createElement('header');
+  headerMuro.classList.add('item1');
+  headerMuro.innerHTML = contenidoHeader();
+
+  const seccionModalCategoria = document.createElement('div');
+  seccionModalCategoria.classList.add('modalCategoria');
+  seccionModalCategoria.innerHTML = seccionModal();
+
+  const divSeccionPerfilusuario = document.createElement('div');
+  divSeccionPerfilusuario.classList.add('contenedor-perfil');
+  divSeccionPerfilusuario.appendChild(contenidoPerfil());
+
+  articleMuroPerfil.appendChild(headerMuro);
+  articleMuroPerfil.appendChild(seccionModalCategoria);
+  articleMuroPerfil.appendChild(divSeccionPerfilusuario);
+
+  return articleMuroPerfil;
+};
+
+// Render de la sección perfil del usuario para editar
+export const muroEditarPerfil = () => {
+  const articleMuroEditarPerfil = document.createElement('article');
+  articleMuroEditarPerfil.classList.add('artEditarPerfil');
+  articleMuroEditarPerfil.setAttribute('id', 'artEditarPerfil');
+
+  const headerMuro = document.createElement('header');
+  headerMuro.classList.add('item1');
+  headerMuro.innerHTML = contenidoHeader();
+
+  const seccionModalCategoria = document.createElement('div');
+  seccionModalCategoria.classList.add('modalCategoria');
+  seccionModalCategoria.innerHTML = seccionModal();
+
+  const divSeccionEditarPerfilusuario = document.createElement('div');
+  divSeccionEditarPerfilusuario.classList.add('contenedor-editarPerfil');
+  divSeccionEditarPerfilusuario.appendChild(contenidoEditarPerfil());
+
+  articleMuroEditarPerfil.appendChild(headerMuro);
+  articleMuroEditarPerfil.appendChild(seccionModalCategoria);
+  articleMuroEditarPerfil.appendChild(divSeccionEditarPerfilusuario);
+
+  return articleMuroEditarPerfil;
+};
+
+// Render de la seccion categoria dependiendo del tipo de post
+export const seccionCategorias = (img, tituloCategoria) => {
+  const articleRefugio = document.createElement('article');
+
+  const headerMuro = document.createElement('header');
+  headerMuro.classList.add('item1');
+  headerMuro.innerHTML = contenidoHeader();
+
+  const seccionModalCategoria = document.createElement('div');
+  seccionModalCategoria.classList.add('modalCategoria');
+  seccionModalCategoria.innerHTML = seccionModal();
+
+  const divSecciones = document.createElement('div');
+  divSecciones.classList.add('grid-container');
+  divSecciones.appendChild(seccionMuro1());
+  divSecciones.appendChild(contenidoCategoria(img, tituloCategoria));
+
+  articleRefugio.appendChild(headerMuro);
+  articleRefugio.appendChild(seccionModalCategoria);
+  articleRefugio.appendChild(divSecciones);
+  return articleRefugio;
+};

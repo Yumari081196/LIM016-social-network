@@ -1,47 +1,77 @@
+import { validateSessionStorage } from './validaciones.js';
+
+// Renderizando de la seccion de datos del usuario y categorias de version desktop
 export const seccionMuro1 = () => {
   const primeraSeccion = document.createElement('section');
   primeraSeccion.classList.add('item2');
+
+  const userData = validateSessionStorage();
+  // const userData = JSON.parse(sessionStorage.userSession);
   primeraSeccion.innerHTML = `
         <section class="secUsuario">
             <div class="contenedorPortada">
-                <img src="imagenes/ImgDelUsuario.png">
+                <img src="${userData.imgPortada}">
             </div>  
             <div class="contenedorPerfil">
-                <div class="ImgCentralUsuario">
-                    <img src="imagenes/ImgUsuario.png">
-                </div>
+                <img src="${userData.imgUsuario}">
                 <div class="datosUsuario">
-                    <h2 class="nombreUsuario">Lucía Lopez</h2>
-                    <p class="estadoUsuario">Amante de los animales</p>
-                    <button class="botonAgregar"><img src="imagenes/pencil.png">Editar Prefil</button>
+                    <h2 class="nombreUsuario">${userData.username}</h2>
+                    <p class="correoUsuario">${userData.correo}</p>
+                    <p class="estadoUsuario">${userData.descripcion}</p>
                 </div>
             </div>
         </section>         
         <section class="secCategorias">
-            <h1>Explorar</h1>            
-            <div>         
-                <div class="categoriaUnica">
-                    <img src="imagenes/refugioIcono.png" >
-                    <p>Refugio</p>
-                </div>
-                <div class="categoriaUnica">
+            <h1>Grupos</h1>            
+            <div class= "contenedorCategorias">         
+                <a href="#/artrefugio" class="categoriaUnica">
+                    <img src="imagenes/iconoRefugioMascotas.png" >
+                    <p>Refugios</p>
+                <a>
+                <a href="#/artmascotasperdidas" class="categoriaUnica">
                     <img src="imagenes/reportarIcono.png" >
-                    <p>Mascotas perdidas</p>
-                </div>
-                <div class="categoriaUnica">
+                    <p>Mascotas Perdidas</p>
+                </a>
+                <a href="#/artadoptar" class="categoriaUnica">
                     <img src="imagenes/adoptarIcono.png" >
                     <p>Adoptar</p>
-                </div>
-                <div class="categoriaUnica">
+                </a>
+                <a href="#/artlugares" class="categoriaUnica">
                     <img src="imagenes/localizacionIcono.png" >
-                    <p>Localización</p>
-                </div>
-                <div class="categoriaUnica">
+                    <p>Lugares</p>
+                </a>
+                <a href="#/artdonaciones" class="categoriaUnica">
                     <img src="imagenes/medicinasIcono.png" >
-                    <p>Medicinas</p>
-                </div>           
+                    <p>Donaciones</p>
+                </a>           
             </div> 
-        </section>
+        </section>       
     `;
   return primeraSeccion;
 };
+
+
+export const categoriasDesktop =`
+    <div id="contenedorCategorias">         
+        <div class="categoriaUnica">
+            <img src="imagenes/refugioIcono.png" >
+            <p>Refugio</p>
+        </div>
+        <div class="categoriaUnica">
+            <img src="imagenes/reportarIcono.png" >
+            <p>Mascotas perdidas</p>
+        </div>
+        <div class="categoriaUnica">
+            <img src="imagenes/adoptarIcono.png" >
+            <p>Adoptar</p>
+        </div>
+        <div class="categoriaUnica">
+            <img src="imagenes/localizacionIcono.png" >
+            <p>Localización</p>
+        </div>
+        <div class="categoriaUnica">
+            <img src="imagenes/medicinasIcono.png" >
+            <p>Medicinas</p>
+        </div>           
+    </div>
+    `

@@ -1,6 +1,44 @@
+/* eslint-disable import/no-unresolved */
 // Configuracion de Firebase
-// eslint-disable-next-line import/no-unresolved
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js';
+
+import {
+  onAuthStateChanged,
+  signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+  signInWithPopup,
+  getAuth,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+} from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js';
+
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  getDoc,
+  doc,
+  setDoc,
+  addDoc,
+  updateDoc,
+  query,
+  orderBy,
+  where,
+  serverTimestamp,
+  deleteDoc,
+  onSnapshot,
+} from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js';
+
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  // eslint-disable-next-line import/no-unresolved
+} from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-storage.js';
 
 // La configuración de Firebase de nuestra aplicación web
 const firebaseConfig = {
@@ -14,3 +52,38 @@ const firebaseConfig = {
 
 // Inicializar Firebase
 export const app = initializeApp(firebaseConfig);
+// Inicializar authentication
+export const auth = getAuth(app);
+//
+const proveedor = new GoogleAuthProvider();
+const proveedorFB = new FacebookAuthProvider();
+
+export {
+  onAuthStateChanged,
+  signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+  signInWithPopup,
+  proveedor,
+  proveedorFB,
+  GoogleAuthProvider,
+  getFirestore,
+  collection,
+  getDocs,
+  getDoc,
+  doc,
+  setDoc,
+  addDoc,
+  updateDoc,
+  query,
+  orderBy,
+  where,
+  serverTimestamp,
+  deleteDoc,
+  onSnapshot,
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+};

@@ -1,13 +1,13 @@
-// eslint-disable-next-line import/no-unresolved
-import { GoogleAuthProvider, FacebookAuthProvider } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js';
 import {
   inicioSesionUsuario,
   googleInicioSesion,
   facebookInicioSesion,
   cierreActividadUsuario,
 } from '../firebase/funcionesAuth.js';
+import { proveedor, GoogleAuthProvider, proveedorFB } from '../firebase/config.js';
 import { modalInicioSesion } from './errores.js';
 import { mostrarYocultarClave } from './home.js';
+import { obtenerById, agregarGoogleUser } from '../firebase/funcionesFirestore.js';
 
 // Creacion de formulario de inicio de Sesión de forma dinámica
 export const formInicioSesion = () => {
@@ -16,67 +16,75 @@ export const formInicioSesion = () => {
             <form id="formIngreso">
                 <div class="seccionIngreso">
                     <input type="text" id="correoIngreso" class="datosIngreso" placeholder="Correo electrónico" required>
-                        <img src="imagenes/envelope.png">
+                    <i class="ph-envelope"></i>
                 </div>
-                
+
                 <div class="seccionIngreso">
                     <input type="password" id="claveIngreso" class="datosIngreso" placeholder="Contraseña" required>
                     <i id="botonContraseña" class="ph-eye-closed"></i>
                 </div>
-                
+
                 <button type="submit" id="botonIngresar" class="iniciarSesion">Ingresar</button>
-                            
+
                 <p class="texto">O bien ingresa con</p>
-                
+
                 <div class="logosInicio">
                     <img id="imgFacebook" src="imagenes/FacebookOriginal.png">
                     <img id="imgGoogle" src="imagenes/GoogleOriginal.png">
                 </div>
-                
+
                 <p class="texto">¿No tienes una cuenta? <a id="registrate" href="#/registro"> Regístrate</a></p> 
-            </form> 
+            </form>
         </div>`;
   return formIngreso;
 };
 
 // Función que se encarga del inicio de Sesión por correo
 export const inicioSesion = (selectorForm, containerError) => {
-  mostrarYocultarClave('botonContraseña', 'claveIngreso');
+  mostrarYocultarClave('botonContraseña', 'claveIngreso'); // funcion de mostrar y ocultar contraseña
+  cierreActividadUsuario(); // ve que no hay actividad de usuario
+  sessionStorage.clear(); // limpia el Storage
   const iniciarCon = document.getElementById(selectorForm);
   iniciarCon.addEventListener('submit', (e) => {
     e.preventDefault();
     const correoIngreso = document.getElementById('correoIngreso').value;
     const claveIngreso = document.getElementById('claveIngreso').value;
+    // se llama al contenedor de los modales error
     const ubicacionModal = document.getElementById(containerError);
 
     inicioSesionUsuario(correoIngreso, claveIngreso)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(userCredential);
-
         if (user.emailVerified === true) {
-          window.location.hash = '#/artmuro';
+          // obtener data del usuario logueado para agregar al sessionStorage
+          obtenerById(user.uid, 'usuarios').then((data) => {
+            const dataa = data;
+            dataa.id = user.uid;
+            sessionStorage.setItem('userSession', JSON.stringify(dataa));
+            window.location.hash = '#/artmuro';
+          });
         } else {
-          cierreActividadUsuario();
+          // muestra mensaje de error si no verifico por correo
           ubicacionModal.innerHTML = modalInicioSesion.confirmar();
           setTimeout(() => {
-            const modalConfirmar = document.getElementById('modalConfirmar');
-            modalConfirmar.style.display = 'none';
+            const modales = document.getElementById('modalConfirmar');
+            modales.style.display = 'none';
           }, 5000);
         }
       })
       .catch((error) => {
+        // se establece todos los mensajes de error
         if (error.message === 'Firebase: Error (auth/invalid-email).' || error.message === 'Firebase: Error (auth/wrong-password).') {
           ubicacionModal.innerHTML = modalInicioSesion.datosInvalidos();
           setTimeout(() => {
-            const modalDatosInvalidos = document.getElementById('modalDatosInvalidos');
-            modalDatosInvalidos.style.display = 'none';
+            const modales = document.getElementById('modalDatosInvalidos');
+            modales.style.display = 'none';
           }, 5000);
         } else if (error.message === 'Firebase: Error (auth/user-not-found).') {
           ubicacionModal.innerHTML = modalInicioSesion.usuarioInvalido();
           setTimeout(() => {
-            const modalUsuarioInvalido = document.getElementById('modalUsuarioInvalido');
-            modalUsuarioInvalido.style.display = 'none';
+            const modales = document.getElementById('modalUsuarioInvalido');
+            modales.style.display = 'none';
           }, 5000);
         } else {
           ubicacionModal.textContent = 'Ocurrió un error';
@@ -84,48 +92,55 @@ export const inicioSesion = (selectorForm, containerError) => {
       });
   });
 
+  // inicio sesion con proveedor google
   const botongoogle = document.getElementById('imgGoogle');
   botongoogle.addEventListener('click', () => {
-    const proveedor = new GoogleAuthProvider();
+    sessionStorage.clear();
     googleInicioSesion(proveedor)
       // eslint-disable-next-line no-unused-vars
       .then((result) => {
-        // console.log(result);
-        window.location.hash = '#/artmuro';
+        const googleUser = result.user;
+
+        agregarGoogleUser(googleUser.uid, googleUser)
+          .then(() => {
+            const data = {
+              correo: googleUser.email,
+              username: googleUser.displayName,
+              id: googleUser.uid,
+              descripcion: '',
+              name: '',
+              ubicacion: ' ',
+            };
+            // agregando datos al sessionStorage
+            sessionStorage.setItem('userSession', JSON.stringify(data));
+            window.location.hash = '#/artmuro';
+          });
         // This gives you a Google Access Token. You can use it to access the Google API.
         // const credential = GoogleAuthProvider.credentialFromResult(result);
         // const token = credential.accessToken;
-        const user = result.user;
-        console.log(user);
+        // const user = result.user;
+        // console.log(user);
       })
       .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        console.log(errorCode);
-        const errorMessage = error.message;
-        console.log((errorMessage));
-        // The email of the user's account used.
-        const email = error.email;
-        console.log(email);
-        // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
+        // eslint-disable-next-line no-console
         console.log(credential);
       });
   });
 
+  // inicio sesion con proveedor facebook
   const botonFacebook = document.getElementById('imgFacebook');
   botonFacebook.addEventListener('click', () => {
-    const proveedor = new FacebookAuthProvider();
-    facebookInicioSesion(proveedor)
+    facebookInicioSesion(proveedorFB)
       // eslint-disable-next-line no-unused-vars
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         window.location.hash = '#/artmuro';
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
         // const credential = FacebookAuthProvider.credentialFromResult(result);
         // const token = credential.accessToken;
-        const user = result.user;
-        console.log(user);
+        // const user = result.user;
+        // console.log(user);
       });
   });
 };
