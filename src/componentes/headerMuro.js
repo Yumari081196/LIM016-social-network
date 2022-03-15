@@ -6,7 +6,7 @@ export const contenidoHeader = () => {
   const userData = validateSessionStorage();
   const headerMuro = `
         <div class="enlacePerfil">
-            <img src="${userData.imgUsuario}" class="imagenUsuario">
+            <a href="#/artperfil"><img src="${userData.imgUsuario}" class="imagenUsuario"></a>
             <p class="nombreUsuario"><a id="perfil" href="#/artperfil">${userData.username}</a></p>
         </div>
         <img src="imagenes/CarePets.svg" class="titulo-header">
@@ -16,7 +16,6 @@ export const contenidoHeader = () => {
           <p class="equis"></p>
           <figure></figure>
           <ul class="desplegable">
-            <li><a id="tema"><img src="imagenes/bx-palette.png"><span>Tema</span></a></li>
             <li><a id="cerrar-sesion"><img src="imagenes/sign-out.png"><span>Cerrar Sesión</span></a></li>
           </ul>
         </div>
@@ -37,6 +36,20 @@ export const cerrarSesion = () => {
         // eslint-disable-next-line no-console
         console.log(error);
       });
+  });
+};
+
+// Funcionalidad de menu puntos verticales
+export const menuPuntosVerticales = () => {
+  const puntosVerticales = document.querySelector('.puntosVerticales');
+  const middle = document.querySelector('.middle');
+  const equis = document.querySelector('.equis');
+  const desplegable = document.querySelector('.desplegable');
+
+  puntosVerticales.addEventListener('click', () => {
+    middle.classList.toggle('active');
+    equis.classList.toggle('active');
+    desplegable.classList.toggle('active');
   });
 };
 

@@ -2,22 +2,17 @@ import {
   obtenerPosts, obtenerById, subirDataHomeCol, subirLikes, obtenerUsuarios,
 } from '../firebase/funcionesFirestore.js';
 import { subirFileStorage } from '../firebase/funcionesStorage.js';
-import { menuPuntosVerticales, validateSessionStorage } from './validaciones.js';
 
 // Renderizar todos los posts
 export const renderPost = (idPost, dataPost, dataCreador) => {
   const divTablero = document.createElement('div');
   divTablero.classList.add('tableroPost');
-  console.log(dataCreador);
-  const userData = JSON.parse(sessionStorage.userSession);
+
   divTablero.innerHTML = `
     <div class="usuarioPost" id= "${idPost}">
         <div class="imgUsuarioPost"><img class="imgPost"src="${dataCreador.imgUsuario}"></div>
         <div class="infoUsuarioPost">
-            <div class="nombreUsuarioPost">
-              <p>${dataCreador.username}</p>
-              ${(dataCreador.userId === userData.id) ? '<div class="puntosVerticales"><figure></figure><figure class="middle"></figure><p class="equis"></p><figure></figure><ul class="desplegable"><li><span>Editar</span></li><li><span>Eliminar/span></li></ul></div>' : ''}
-            </div>
+            <div class="nombreUsuarioPost"><p>${dataCreador.username}</p></div>
             <div class="descripcionUsuarioPost"><p>${dataCreador.descripcion}</p></div>
         </div>
     </div>
@@ -96,7 +91,6 @@ const rellenarHome = async (conteinerPost) => {
           /* const postEliminado = document.getElementById(change.doc.id);
           postEliminado.parentElement.remove(); */
         }
-        menuPuntosVerticales();
       }
     });
   });
@@ -109,7 +103,7 @@ export const seccionMuro2 = () => {
 
   const navInferior = document.createElement('nav');
   navInferior.classList.add('barraNavegacionInferior');
-  const userData = validateSessionStorage();
+  const userData = JSON.parse(sessionStorage.userSession);
   navInferior.innerHTML = `
     <ul>
     <li class="list">
@@ -144,7 +138,7 @@ export const seccionMuro2 = () => {
     <div class="botones">
         <input type="file" placeholder="Añadir Imagen" id="compartirImg">         
         <select name="Grupo" id="Grupo" class="Grupo">
-          <option value="" selected disabled>Seleccionar</option>
+          <option value="" selected disabled>Grupo</option>
           <option value="Refugios">Refugios</option>
           <option value="Mascotas Perdidas">Mascotas Perdidas</option>
           <option value="Adoptar">Adoptar</option>

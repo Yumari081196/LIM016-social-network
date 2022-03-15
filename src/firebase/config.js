@@ -42,12 +42,12 @@ import {
 
 // La configuración de Firebase de nuestra aplicación web
 const firebaseConfig = {
-  apiKey: 'AIzaSyC7izILxBAofkAgRFOXdbdsLCe7r9WWd1c',
-  authDomain: 'care-pets.firebaseapp.com',
-  projectId: 'care-pets',
-  storageBucket: 'care-pets.appspot.com',
-  messagingSenderId: '199291870338',
-  appId: '1:199291870338:web:51b3e7c0b6fdc6d26ca89b',
+  apiKey: 'AIzaSyCaQ7ypqFXHu9ikarcZpoPLKq1t5KxNmic',
+  authDomain: 'helppetsprueba2.firebaseapp.com',
+  projectId: 'helppetsprueba2',
+  storageBucket: 'helppetsprueba2.appspot.com',
+  messagingSenderId: '455441875262',
+  appId: '1:455441875262:web:660c2751c247dc85696c6f',
 };
 
 // Inicializar Firebase

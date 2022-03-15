@@ -27,9 +27,3 @@ export const cierreActividadUsuario = () => signOut(auth);
 export const envioCorreoVerificacion = () => sendEmailVerification(auth.currentUser);
 
 export const estadoAuthUsuario = (callback) => onAuthStateChanged(auth, callback);
-//
-/* export const envioClaveRecuperacion = (correo) => {
-  const auth = getAuth(app);
-  return sendPasswordResetEmail(auth, correo);
-};
- */

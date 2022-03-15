@@ -1,98 +1,22 @@
-# Creando una Red Social
+# 🐾CarePets: App para mascotas
+## 1. Introducción 🚀
 
-## Índice
+La industria de las redes sociales está en constante crecimiento y desarrollo. Las amamos u odiamos, y muchos no podemos vivir sin ellas. Por lo que, queremos presentarles a CarePets, una red social de información sobre mascotas que promueve la ayuda hacia ellos, cuyo propósito es permitir que los usuarios puedan informarse o compartir contenido relacionado a las necesidades de sus mascotas. Además de ser una plataforma de ayuda para aquellos animalitos que están desamparados o instituciones que atiendan dichos casos. Donde encontrarás grupos como **refugios, mascotas perdidas, adoptar, lugares de donación, entre otros.**
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Entrega](#7-entrega)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
+## 2. Resumen del proyecto 📋
+Este proyecto tiene como finalidad **construir una Single Page Aplication**, dirigido a personas que necesitan información sobre mascotas. Permite a cualquier usuario crear una cuenta de acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicaciones. Tener un muro personal con sus propias publicaciones y un muro general en la que se puede seguir las últimas actualizaciones en los grupos. Además, de la zona de perfil, que permite al usuario actualizar sus datos como nombre de usuario, correo electrónico, una breve biografía/descripción y foto de perfil.
 
-## 1. Preámbulo
+## 3. Descripción del proyecto  📎
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
-vivir sin ellas.
+#### ¿Cuál es la necesidad o el problema que CarePets busca solucionar?
+CarePets está pensada en relación a la problemática de los abandonos y la adopción ilegal, lo que hace de ella una plataforma donde las organizaciones pueden realizar de forma gratuita llamamientos para la adopción y para la protección de nuestras mascotas.
+#### ¿Para quién está diseñado CarePets exactamente?
+Está diseñado para aquellas personas que buscan una aplicación para ponerse en contacto y conectar con aquellas personas que son amantes de los animales y que su mascota es su mejor amigo.
+#### ¿Cómo CarePets está resolviendo los problemas de los usuarios?
+Resuelve los problemas permitiendo a los usuarios publicar y compartir imágenes, actividades y anuncios de todo tipo, además que puedes encontrar los datos como correo electrónico para una comunicación personal con otros usuarios.
+### 3.1. Proceso creativo de diseño ⚙️
 
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
-
-## 2. Resumen del proyecto
-
-En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
-Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
-salud, energías renovables, amantes de las [Empanadas](https://es.wikipedia.org/wiki/Empanada)
-o de los [Tacos de Canasta](https://es.wikipedia.org/wiki/Taco), de la
-[Feijoada](https://es.wikipedia.org/wiki/Feijoada), o de lo que sea.
-
-Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de
-acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
-
-El objetivo principal de aprendizaje de este proyecto es construir una
-[Single-page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](https://curriculum.laboratoria.la/es/topics/css/02-responsive) (con más de una vista / página)
-en la que podamos **leer y escribir datos**.
-
-## 3. Objetivos de aprendizaje
-
-Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en tu proyecto. Piensa en eso al decidir tu estrategia de trabajo.
-
-### HTML
-
-- [ ] **Uso de HTML semántico**
-
-  <details><summary>Links</summary><p>
-
-  * [HTML semántico](https://curriculum.laboratoria.la/es/topics/html/02-html5/02-semantic-html)
-  * [Semantics - MDN Web Docs Glossary](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
-</p></details>
-
-### CSS
-
-- [ ] **Uso de selectores de CSS**
-
-  <details><summary>Links</summary><p>
-
-  * [Intro a CSS](https://curriculum.laboratoria.la/es/topics/css/01-css/01-intro-css)
-  * [CSS Selectors - MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors)
-</p></details>
-
-- [ ] **Modelo de caja (box model): borde, margen, padding**
-
-  <details><summary>Links</summary><p>
-
-  * [Box Model & Display](https://curriculum.laboratoria.la/es/topics/css/01-css/02-boxmodel-and-display)
-  * [The box model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
-  * [Introduction to the CSS box model - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
-  * [CSS display - MDN](https://developer.mozilla.org/pt-BR/docs/Web/CSS/display)
-  * [display - CSS Tricks](https://css-tricks.com/almanac/properties/d/display/)
-</p></details>
-
-- [ ] **Uso de flexbox en CSS**
-
-  <details><summary>Links</summary><p>
-
-  * [A Complete Guide to Flexbox - CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-  * [Flexbox Froggy](https://flexboxfroggy.com/#es)
-  * [Flexbox - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
-</p></details>
-
-- [ ] **Uso de CSS Grid Layout**
-
-  <details><summary>Links</summary><p>
-
-  * [A Complete Guide to Grid - CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
-  * [Grids - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids)
-</p></details>
-
-A continuación te proporcionamos el layout (diseño) de la vista mobile y desktop que deberás replicar visualmente y cuyo contenido, colores y fuentes de texto, dejaremos a tu elección.
+_Nos brindaron el layout (diseño) de la vista mobile y desktop que debíamos replicar visualmente_
 
 * Vista mobile
 
@@ -102,420 +26,261 @@ A continuación te proporcionamos el layout (diseño) de la vista mobile y deskt
 
     ![desktop](https://user-images.githubusercontent.com/32286663/56174626-fcb74080-5fb8-11e9-8854-26e8d9c4e25f.png)
 
+_Por otro lado, se dejo a criterio nuestro la elección contenido, colores y fuentes de texto. Se realizaron los prototipos en [Figma](https://www.figma.com/file/94NnPGItEgvVlAq0mFJEKt/3er-project-REDSOCIAL?node-id=103:71)._
+
+* Vista mobile 📲
+
+ ![mobile](Android-Inicio.png)
+ ![mobile](Android-Registro.png)
+ ![mobile](Android-Home.png)
+
+* Vista Desktop 💻
+
+ ![desktop](Desktop.jpg)
+ ![desktop](Desktop-muro.png)
+ 
+### 3.2. Historias de Usuario y Criterios de Aceptación  📢  📝
+#### SPRINT 1
+```
+HU 1:  🗣️ Yo COMO usuario QUIERO poder visualizar la página principal donde me permite registrarme en la aplicación PARA ingresar a la comunidad interesada en brindar o asistir ayuda a las mascotas.
+
+ 📍 Criterios de Aceptación:
+Que se pueda diferenciar las áreas o secciones de la interfaz con facilidad, en este caso la opción de ingresar y la opción para registrarse. 
+```
+
+```
+HU 2:  🗣️ Yo COMO usuario QUIERO tener diversas opciones de ingreso en la plataforma como facebook o google, además del ingreso por correo PARA que el proceso de ingreso sea más rápido y a elección del usuario.
+
+ 📍 Criterios de Aceptación:
+Que el usuario al acceder a la plataforma pueda encontrar distintas maneras de registro e ingreso que faciliten el proceso.
+```
+
+```
+HU 3:  🗣️ Yo COMO usuario QUIERO poder registrarme con correo y nombre de usuario PARA poder tener una credencial más personal al momento de ingresar a la plataforma.
+
+ 📍 Criterios de Aceptación:
+Crear una sección donde el usuario pueda ingresar sus datos de correo, contraseña y nombre de usuario para hacer un registro más personalizado.
+```
+
+#### SPRINT 2
+```
+HU 1:  🗣️ Yo COMO usuario QUIERO crear una cuenta para iniciar sesión en CarePets PARA acceder a la red social.
+
+ 📍 Criterios de Aceptación:
+- El usuario puede registrarse e ingresar con su usuario y contraseña.
+- El usuario puede ingresar con cuenta de google.
+```
+
+```
+HU 2:  🗣️ Yo COMO usuario QUIERO verificar por mensaje electronico mi cuenta en CarePets PARA garantizar que me registré con correo electrónico correctamente.
+
+ 📍 Criterios de Aceptación:
+- Se permite el acceso a usuarios con cuentas válidas.
+- No pueden haber usuarios repetidos.
+- Al enviarse el formulario de registro, debe validarse.
+```
+
+```
+HU 3:  🗣️ Yo COMO usuario QUIERO ver si hay errores a la hora de registrarme o iniciar sesión PARA que pueda ayudarme a corregirlos.
+
+ 📍 Criterios de Aceptación:
+Si hay errores, se deben mostrar mensajes descriptivos para ayudar al usuario a corregirlos.
+```
+
+```
+HU 4:  🗣️ Yo COMO usuario QUIERO poder cerrar sesión PARA poder proteger mis datos.
+
+ 📍 Criterios de Aceptación:
+- El usuario puede cerrar sesión.
+- La web recuerda y reconoce el estado del usuario al ingresar a la aplicación.
+```
+
+#### SPRINT 3
+```
+HU 1:  🗣️ Yo COMO usuario QUIERO crear, editar y borrar contenido de las publicaciones PARA compartir y aportar contenido en la red social.
+
+ 📍 Criterios de Aceptación:
+- El usuario puede crear contenido.
+- El usuario puede publicar varias veces.
+- El usuario puede editar su publicación.
+- El usuario puede eliminar su publicación.
+```
+
+```
+HU 2:  🗣️ Yo COMO usuario QUIERO ver los distintos grupos de la red social PARA ver las publicaciones y ver cual me interesa más.
+
+ 📍 Criterios de Aceptación:
+- El usuario puede acceder a los grupos y ver las publicaciones hechas en la categoría respectiva.
+- El usuario puede retornar al inicio y ver el muro general.
+```
+
+#### SPRINT 4
+```
+HU 1:  🗣️ Yo COMO usuario QUIERO ver mis propias publicaciones PARA actualizarlas y aportar nuevas noticias a la aplicación.
+
+ 📍 Criterios de Aceptación:
+- El usuario puede acceder a sus publicaciones en una sola vista.
+- El usuario puede editar y eliminar sus propias publicaciones.
+- El usuario puede retornar al inicio y ver el muro general.
+```
+
+```
+HU 2:  🗣️ Yo COMO usuario QUIERO publicar imágenes PARA incluir un contenido más práctico y detallado.
+
+ 📍 Criterios de Aceptación:
+El usuario puede compartir imágenes y texto o por separado.
+```
+
+```
+HU 3:  🗣️ Yo COMO usuario QUIERO actualizar mis datos de perfil PARA mantener mejor contacto con otros usuarios.
+
+ 📍 Criterios de Aceptación:
+El usuario puede actualizar sus datos como nombre de usuario, imagen de perfil, estado/descripción y ubicación.
+```
+
+```
+HU 4:  🗣️ Yo COMO usuario QUIERO dar y quitar like a las publicaciones PARA dar una opinión positiva o de interés a los contenidos de las publicaciones de esta forma conectar con aquello que me interesa.
+
+ 📍 Criterios de Aceptación:
+- El usuario puede darle like a su publicación y/o a otras publicaciones.
+- El usuario puede quitarle like a su publicación y/o a otras publicaciones.
+- El usuario puede ver sus likes así como de otros.
+```
+
+### 3.3. Test de usabilidad 🔧
+
+_Gracias al feedback recibido por nuestras compañeras, se identificó que se debía establecer algunas mejoras en los siguientes aspectos:_
+
+_Durante el primer sprint se utilizaron colores pasteles y fuente de texto no muy legible para una red social._
+
+* Se modificó los colores y elección de una fuente de texto más legible para los usuarios.
+
+_Durante el segundo sprint se continuó con la vista inicio sesión y registro_
+
+* Se modificó inicio sesión lo que es la contraseña, en donde el usuario al hacer click al ícono de ojo puede ver su contraseña y al hacer nuevamente click ocultar su contraseña.
+
+_Durante el tercer sprint se continuó con la vista muro/timeline_
+
+* Se modificó las proporciones de las secciones principales en el muro general. También, se modificó el input tipo text a un textarea para evitar el desborde del texto en la publicación y una mejor vista del menú derecho del header.
+
+###  3.4. Despliegue 📦
+
+_El despliegue fue realizado a través de GitHub Project y puede acceder a nuestra página desde aquí: [CarePets: app para mascotas](https://fio-azahuanche.github.io/LIM016-social-network/)_
+
+## 4. Consideraciones Generales  🚨
+* La lógica del proyecto está implementada completamente en JavaScript (ES6+), HTML y CSS.
+*  Uso de [Firebase](https://console.firebase.google.com/), plataforma en la nube para el login y publicaciones de nuestra aplicación.
+*  Uso de la librería [Jest](https://jestjs.io/docs/getting-started) para escribir y ejecutar tests.
+* El tiempo del proyecto fue de  `4 semanas.`
+
+### 4.1. Herramientas 🛠️
+
+* La organización fue inicialmente en [Trello](https://trello.com/b/nhdNNFxa/red-social).
+* Uso de [Google Drive](https://docs.google.com/document/d/16od4ZV9bH1KP6YRdJTN8LHoqHeoV4Z_FPOEvkIxRJuk/edit) para elección de temática.
+* Se realizó el prototipo de la aplicación en [Figma](https://www.figma.com/file/94NnPGItEgvVlAq0mFJEKt/3er-project-REDSOCIAL?node-id=103:71).
+
+_Puedes encontrar mucho más de nuestra organización [GitHub Project](https://github.com/fio-azahuanche/LIM016-social-network/projects/1)._
+
+### 4.2. Versionado 📌
+
+Usamos [Git](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/fio-azahuanche/LIM016-social-network/tags).
+
+## 5. Autoras ✒️
+Elaborado con 💛❤️ por:
+
+😊 **Yumari Cruz** - [yumari081196](https://github.com/Yumari081196)
+
+😊 **Marielena Aizaga** - [PandArtist93](https://github.com/PandArtist93)
+
+😊 **Fiorela Azahuanche** - [fio-azahuanche](https://github.com/fio-azahuanche) 
+
+## 6. Objetivos de aprendizaje 📄
+### HTML
+
+- [x] **Uso de HTML semántico**
+
+### CSS
+
+- [x] **Uso de selectores de CSS**
+
+- [x] **Modelo de caja (box model): borde, margen, padding**
+
+- [x] **Uso de flexbox en CSS**
+
+- [x] **Uso de CSS Grid Layout**
+
 ### Web APIs
 
-- [ ] **Uso de selectores del DOM**
+- [x] **Uso de selectores del DOM**
 
-  <details><summary>Links</summary><p>
+- [x] **Manejo de eventos del DOM (listeners, propagación, delegación)**
 
-  * [Manipulación del DOM](https://curriculum.laboratoria.la/es/topics/browser/02-dom/03-1-dom-methods-selection)
-  * [Introducción al DOM - MDN](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction)
-  * [Localizando elementos DOM usando selectores - MDN](https://developer.mozilla.org/es/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors)
-</p></details>
+- [x] **Manipulación dinámica del DOM**
 
-- [ ] **Manejo de eventos del DOM (listeners, propagación, delegación)**
-
-  <details><summary>Links</summary><p>
-
-  * [Introducción a eventos - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Events)
-  * [EventTarget.addEventListener() - MDN](https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener)
-  * [EventTarget.removeEventListener() - MDN](https://developer.mozilla.org/es/docs/Web/API/EventTarget/removeEventListener)
-  * [El objeto Event](https://developer.mozilla.org/es/docs/Web/API/Event)
-</p></details>
-
-- [ ] **Manipulación dinámica del DOM**
-
-  <details><summary>Links</summary><p>
-
-  * [Introducción al DOM](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction)
-  * [Node.appendChild() - MDN](https://developer.mozilla.org/es/docs/Web/API/Node/appendChild)
-  * [Document.createElement() - MDN](https://developer.mozilla.org/es/docs/Web/API/Document/createElement)
-  * [Document.createTextNode()](https://developer.mozilla.org/es/docs/Web/API/Document/createTextNode)
-  * [Element.innerHTML - MDN](https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML)
-  * [Node.textContent - MDN](https://developer.mozilla.org/es/docs/Web/API/Node/textContent)
-</p></details>
-
-- [ ] **Ruteado (History API, evento hashchange, window.location)**
-
-  <details><summary>Links</summary><p>
-
-  * [Manipulando el historial del navegador - MDN](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-</p></details>
+- [x] **Ruteado (History API, evento hashchange, window.location)**
 
 ### JavaScript
 
-- [ ] **Arrays (arreglos)**
+- [x] **Arrays (arreglos)**
 
-  <details><summary>Links</summary><p>
+- [x] **Objetos (key, value)**
 
-  * [Arreglos](https://curriculum.laboratoria.la/es/topics/javascript/04-arrays)
-  * [Array - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/)
-  * [Array.prototype.sort() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
-  * [Array.prototype.forEach() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-  * [Array.prototype.map() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
-  * [Array.prototype.filter() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-  * [Array.prototype.reduce() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
-</p></details>
+- [x] **Diferenciar entre tipos de datos primitivos y no primitivos**
 
-- [ ] **Objetos (key, value)**
+- [x] **Variables (declaración, asignación, ámbito)**
 
-  <details><summary>Links</summary><p>
+- [x] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
 
-  * [Objetos en JavaScript](https://curriculum.laboratoria.la/es/topics/javascript/05-objects/01-objects)
-</p></details>
+- [x] **Uso de bucles/ciclos (while, for, for..of)**
 
-- [ ] **Diferenciar entre tipos de datos primitivos y no primitivos**
-
-- [ ] **Variables (declaración, asignación, ámbito)**
-
-  <details><summary>Links</summary><p>
-
-  * [Valores, tipos de datos y operadores](https://curriculum.laboratoria.la/es/topics/javascript/01-basics/01-values-variables-and-types)
-  * [Variables](https://curriculum.laboratoria.la/es/topics/javascript/01-basics/02-variables)
-</p></details>
-
-- [ ] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
-
-  <details><summary>Links</summary><p>
-
-  * [Estructuras condicionales y repetitivas](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/01-conditionals-and-loops)
-  * [Tomando decisiones en tu código — condicionales - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/conditionals)
-</p></details>
-
-- [ ] **Uso de bucles/ciclos (while, for, for..of)**
-
-  <details><summary>Links</summary><p>
-
-  * [Bucles (Loops)](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/02-loops)
-  * [Bucles e iteración - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Loops_and_iteration)
-</p></details>
-
-- [ ] **Funciones (params, args, return)**
-
-  <details><summary>Links</summary><p>
-
-  * [Funciones (control de flujo)](https://curriculum.laboratoria.la/es/topics/javascript/02-flow-control/03-functions)
-  * [Funciones clásicas](https://curriculum.laboratoria.la/es/topics/javascript/03-functions/01-classic)
-  * [Arrow Functions](https://curriculum.laboratoria.la/es/topics/javascript/03-functions/02-arrow)
-  * [Funciones — bloques de código reutilizables - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Functions)
-</p></details>
+- [x] **Funciones (params, args, return)**
 
 - [ ] **Pruebas unitarias (unit tests)**
 
-  <details><summary>Links</summary><p>
-
-  * [Empezando con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/getting-started)
-</p></details>
-
 - [ ] **Pruebas asíncronas**
 
-  <details><summary>Links</summary><p>
+- [x] **Uso de mocks y espías**
 
-  * [Tests de código asincrónico con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/asynchronous)
-</p></details>
+- [x] **Módulos de ECMAScript (ES Modules)**
 
-- [ ] **Uso de mocks y espías**
-
-  <details><summary>Links</summary><p>
-
-  * [Manual Mocks con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/manual-mocks)
-</p></details>
-
-- [ ] **Módulos de ECMAScript (ES Modules)**
-
-  <details><summary>Links</summary><p>
-
-  * [import - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import)
-  * [export - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export)
-</p></details>
-
-- [ ] **Uso de linter (ESLINT)**
+- [x] **Uso de linter (ESLINT)**
 
 - [ ] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
 
-- [ ] **Diferenciar entre expresiones (expressions) y sentencias (statements)**
+- [x] **Diferenciar entre expresiones (expressions) y sentencias (statements)**
 
-- [ ] **Callbacks**
+- [x] **Callbacks**
 
-  <details><summary>Links</summary><p>
-
-  * [Función Callback - MDN](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
-</p></details>
-
-- [ ] **Promesas**
-
-  <details><summary>Links</summary><p>
-
-  * [Promise - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-  * [How to Write a JavaScript Promise - freecodecamp (en inglés)](https://www.freecodecamp.org/news/how-to-write-a-javascript-promise-4ed8d44292b8/)
-</p></details>
+- [x] **Promesas**
 
 ### Control de Versiones (Git y GitHub)
 
-- [ ] **Git: Instalación y configuración**
+- [x] **Git: Instalación y configuración**
 
-- [ ] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
+- [x] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
 
-- [ ] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
+- [x] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
 
-- [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
+- [x] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
 
-- [ ] **GitHub: Despliegue con GitHub Pages**
+- [x] **GitHub: Despliegue con GitHub Pages**
 
-  <details><summary>Links</summary><p>
+- [x] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
 
-  * [Sitio oficial de GitHub Pages](https://pages.github.com/)
-</p></details>
-
-- [ ] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
-
-- [ ] **GitHub: Organización en Github (projects | issues | labels | milestones | releases)**
+- [x] **GitHub: Organización en Github (projects | issues | labels | milestones | releases)**
 
 ### UX (User eXperience)
 
-- [ ] **Diseñar la aplicación pensando en y entendiendo al usuario**
+- [x] **Diseñar la aplicación pensando en y entendiendo al usuario**
 
-- [ ] **Crear prototipos para obtener feedback e iterar**
+- [x] **Crear prototipos para obtener feedback e iterar**
 
-- [ ] **Aplicar los principios de diseño visual (contraste, alineación, jerarquía)**
+- [x] **Aplicar los principios de diseño visual (contraste, alineación, jerarquía)**
 
-- [ ] **Planear y ejecutar tests de usabilidad**
+- [x] **Planear y ejecutar tests de usabilidad**
 
 ### Firebase
 
-- [ ] **Firebase Auth**
+- [x] **Firebase Auth**
 
-  <details><summary>Links</summary><p>
-
-  * [Primeros pasos con Firebase Authentication en sitios web - Documentación oficial](https://firebase.google.com/docs/auth/web/start?hl=es)
-  * [Administra usuarios en Firebase (onAuthStateChanged)](https://firebase.google.com/docs/auth/web/manage-users?hl=es#get_the_currently_signed-in_user)
-</p></details>
-
-- [ ] **Firestore**
-
-  <details><summary>Links</summary><p>
-
-  * [Firestore - Documentación oficial](https://firebase.google.com/docs/firestore?hl=es)
-  * [Reglas de seguridad de Firestore - Documentación oficial](https://firebase.google.com/docs/rules?hl=es)
-  * [Obtén actualizaciones en tiempo real con Cloud Firestore - Documentación oficial](https://firebase.google.com/docs/firestore/query-data/listen?hl=es)
-</p></details>
-
-## 4. Consideraciones generales
-
-* Este proyecto se debe trabajar en equipos de tres.
-
-* La lógica del proyecto debe estar implementada completamente en JavaScript
-  (ES6+), HTML y CSS :smiley:. Para este proyecto **no está permitido** utilizar
-  _frameworks_ o librerías de CSS y JS.
-
-* La división y organización del trabajo debe permitir, sin excepciones, que
-  **cada integrante** del equipo practique el aprendizaje de todo lo involucrado
-  en **cada historia**. _No se dividan el trabajo como en una fábrica._
-  - ¿Hasta acá has avanzado en tus proyectos con cierta fluidez y sin mayores
-    problemas? Sé generosa con tus compañeras, permíteles aprender y practicar
-    sin restricciones, aunque tome un poco más de tiempo. Aproveha de
-    _coachearlas_, de hacer _pair programming_, una de las mejores maneras de
-    aprender es explicando verbalmente.
-
-  - ¿Se te está haciendo difícil y te cuesta un poco más avanzar? No te quedes
-    con las partes "fáciles" del proyecto, conversa, negocia, exige tu oportunidad
-    para practicar y aprender lo que se te hace más difícil.
-
-* Solamente pueden trabajar en una única historia por vez, no pueden avanzar a
-  la siguiente sin haber completado la anterior. La historia se completa cuando
-  se cumplen **todos** sus Criterios de Aceptación + **toda** su Definición
-  de Terminado.
-
-Para comenzar tendrás que hacer un _fork_ y _clonar_ este repositorio.
-
-## 5. Criterios de aceptación mínimos del proyecto
-
-### 5.1 Boilerplate
-
-Este proyecto no incluye un _boilerplate_, así es que tendrás que definir la
-estructura de carpetas y escribir tus propias Pruebas Unitarias (_tests_). Para
-hacerlo, puedes guiarte de los proyectos anteriores.
-
-### 5.2 Definición del producto
-
-En el `README.md` cuéntanos brevemente cómo descubriste las necesidades de los
-usuarios y cómo llegaste a la definición final de tu producto. Es importante
-que detalles:
-
-* Quiénes son los principales usuarios de producto.
-* Qué problema resuelve el producto / para qué le servirá a estos usuarios.
-
-### 5.3 Historias de usuario
-
-Una vez que entiendas las necesidades de tus usuarixs, escribe las Historias de
-Usuario que representen todo lo que necesitan hacer/ver en la Red Social. Cada
-una de tus Historias de Usuario debe tener:
-
-* **Criterios de Aceptación:** todo lo que debe ocurrir para satisfacer las
-  necesidades del usuario.
-
-* **Definición de terminado:** todos los aspectos técnicos que deben cumplirse
-  para que, como equipo, sepan que esa historia está terminada y lista
-  para publicarse. **Todas** tus Historias de Usuario (salvo excepciones), deben
-  incluir estos aspectos en su Definición de Terminado (más todo lo que
-  necesiten agregar):
-
-  - Debe ser una SPA.
-  - Debe ser _responsive_.
-  - Deben haber recibido _code review_ de al menos una compañera de otro equipo.
-  - Hicieron los _test_ unitarios
-  - Testearon manualmente buscando errores e imperfecciones simples.
-  - Hicieron _pruebas_ de usabilidad e incorporaron el _feedback_ de los
-    usuarios como mejoras.
-  - Desplegaron su aplicación y etiquetaron la versión (git tag).
-
-### 5.4 Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
-
-Debes definir cuál será el flujo que seguirá el usuario dentro de tu aplicación
-y, con eso, diseña la Interfaz de Usuario (UI por sus siglas en inglés) que
-siga este flujo.
-
-### 5.5 Responsive
-
-Debe verse bien en dispositivos de pantallas grandes
-(computadoras/es, laptops, etc.) y pequeñas (_tablets_, celulares, etc.). Te
-sugerimos seguir la técnica de _`mobile first`_ (más detalles sobre esta técnica
-al final).
-
-### 5.6 Consideraciones del comportamiento de la interfaz de usuario (UI)
-
-Estas consideraciones te ayudarán a escribir las Definiciones de Terminado de
-tus H.U.:
-
-#### Creación de cuenta de usuario e inicio de sesión
-
-* _Login_ con Firebase:
-  - Para el _login_ y las publicaciones en el muro puedes utilizar [Firebase](https://firebase.google.com/products/database/)
-  - Creación de cuenta de acceso y autenticación con cuenta de correo y
-    contraseña, y también con una cuenta de Google.
-* Validaciones:
-  - Solamente se permite el acceso a usuarios con cuentas válidas.
-  - No pueden haber usuarios repetidos.
-  - La cuenta de usuario debe ser un correo electrónico válido.
-  - Lo que se escriba en el campo (_input_) de contraseña debe ser secreto.
-* Comportamiento:
-  - Al enviarse el formulario de registro o inicio de sesión, debe validarse.
-  - Si hay errores, se deben mostrar mensajes descriptivos para ayudar al
-  usuario a corregirlos.
-
-#### Muro/timeline
-
-* Validaciones:
-  - Al publicar, se debe validar que exista contenido en el _input_.
-* Comportamiento:
-  - Al recargar la aplicación, se debe verificar si el usuario está _logueado_
-    antes de mostrar contenido.
-  - Poder publicar un _post_.
-  - Poder dar y quitar _like_ a una publicación. Máximo uno por usuario.
-  - Llevar un conteo de los _likes_.
-  - Poder eliminar un post específico.
-  - Pedir confirmación antes de eliminar un _post_.
-  - Al dar _click_ para editar un _post_, debe cambiar el texto por un _input_
-    que permita editar el texto y luego guardar los cambios.
-  - Al guardar los cambios debe cambiar de vuelta a un texto normal pero con la
-    información editada.
-  - Al recargar la página debo de poder ver los textos editados.
-
-### 5.7 Consideraciones técnicas Front-end
-
-* Separar la manipulación del DOM de la lógica (Separación de responsabilidades).
-* Contar con múltiples vistas. Para esto, tu aplicación debe ser una
- [Single Page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-* Alterar y persistir datos. Los datos que agregues o modifiques deberán
-  persistir a lo largo de la aplicación. Te recomendamos que uses
-  [Firebase](https://firebase.google.com/) para eso también.
-
-#### Pruebas unitarias (unit tests)
-
-* Recuerda que no hay un _setup_ de **tests** definido, dependerá de
-  la estructura de tu proyecto. Algo que no debes de olvidar es pensar en éstas
-  pruebas, te pueden ayudar a definir la estructura y nomenclatura de tu lógica.
-
-* Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
-  _lines_, y _branches_.
-
-### 5.8 Consideraciones técnicas UX
-
-* Hacer al menos 2 entrevistas con usuarios.
-* Hacer un  prototipo de baja fidelidad.
-* Asegurarte de que la implementación en código siga los lineamientos del
-  diseño.
-* Hacer sesiones de _testing de usabilidad_ con el producto en HTML.
-
-## 6. Hacker edition
-
-Las secciones llamadas _Hacker Edition_ son **opcionales**. Si **terminaste**
-con todo lo anterior y te queda tiempo, intenta completarlas. Así podrás
-profundizar y/o ejercitar más sobre los objetivos de aprendizaje del proyecto.
-
-* Permite crear posts con imágenes.
-* Permite buscar usuarios, agregar y eliminar "amigos".
-* Permite definir la privacidad de los _posts_ (público o solamente para amigos).
-* Permite ver su muro de cualquier usuario "no-amigo" (solamente los
-  posts _públicos_).
-* Permite comentar o responder una publicación.
-* Permite editar perfil.
-
-## 7. Entrega
-
-El proyecto será _entregado_ subiendo tu código a GitHub (`commit`/`push`) y la
-interfaz será desplegada usando GitHub pages u otro servicio de hosting que
-puedas haber encontrado en el camino.
-
-***
-
-## 8. Pistas, tips y Lecturas complementarias
-
-### Mobile first
-
-El concepto de [_mobile first_](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-hace referencia a un proceso de diseño y desarrollo donde partimos de cómo se ve
-y cómo funciona la aplicación en un dispositivo móvil primero, y más adelante se
-ve como adaptar la aplicación a pantallas progresivamente grandes y
-características específicas del entorno desktop. Esto es en contraposición al
-modelo tradicional, donde primero se diseñaban los websites (o webapps) para
-desktop y después se trataba de _arrugar_ el diseño para que entre en pantallas
-más chicas. La clave acá es asegurarse de que desde el principio diseñan usando
-la vista _responsive_ de las herramientas de desarrollador (developer tools) del
-navegador. De esa forma, partimos de cómo se ve y comporta la aplicación en una
-pantalla y entorno móvil.
-
-### Múltiples vistas
-
-En proyectos anteriores nuestras aplicaciones habían estado compuestas de una
-sola _vista_ principal (una sóla _página_). En este proyecto se introduce la
-necesidad de tener que dividir nuestra interfaz en varias _vistas_ o _páginas_
-y ofrecer una manera de navegar entre estas vistas. Este problema se puede
-afrontar de muchas maneras: con archivos HTML independientes (cada uno con su
-URL) y links tradicionales, manteniendo estado en memoria y rederizando
-condicionalmente (sin refrescar la página), [manipulando el historial del
-navegador](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-con [`window.history`](https://developer.mozilla.org/es/docs/Web/API/Window/history).
-En este proyecto te invitamos a explorar opciones y decidir una opción
-de implementación.
-
-### Escritura de datos
-
-En los proyectos anteriores hemos consumido (leído) datos, pero todavía no
-habíamos escrito datos (salvar cambios, crear datos, borrar, ...). En este
-proyecto tendrás que crear (salvar) nuevos datos, así como leer, actualizar y
-modificar datos existentes. Estos datos se podrán guardar de forma remota
-usando [Firebase](https://firebase.google.com/).
-
-Otras:
-* [Pildora SPA](https://www.loom.com/share/fa63a8ad0e9a43428222c15b6f6613d3)
-* [Repositorio de pildora de SPA](https://github.com/betsyvies/bootcamp-spa)
-* [Pildora de mock Firebase](https://www.youtube.com/watch?v=06myVn41OTY&t=1s)
-* [Repositorio de pildora de mock Firebase](https://github.com/Danielalab/2018-2-Testing)
-* [Pildora MVC](https://github.com/merunga/todomvc-vanillajs)
-* [Modulos: Export](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/export)
-* [Modulos: Import](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/import)
-* [Diseño web, responsive design y la importancia del mobile first - Media Click](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-* [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
-* [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
-* [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
+- [x] **Firestore**

@@ -11,10 +11,9 @@ export const userState = () => {
 
 // Funcion para llamar al sessionStorage
 export const validateSessionStorage = () => {
-  let userData;
-  const data = sessionStorage.getItem('userSession');
+  let userData = sessionStorage.getItem('userSession');
   // console.log(userData);
-  if (!data) {
+  if (!userData) {
     userData = {
       username: '',
       name: '',
@@ -27,25 +26,3 @@ export const validateSessionStorage = () => {
   }
   return userData;
 };
-
-// Funcionalidad de menu puntos verticales
-export const menuPuntosVerticales = () => {
-  const puntosVerticales = document.querySelectorAll('.puntosVerticales');
-  puntosVerticales.forEach((pV) => {
-    pV.addEventListener('click', () => {
-      const middle = pV.getElementsByClassName('middle');
-      const equis = pV.getElementsByClassName('equis');
-      const desplegable = pV.getElementsByClassName('desplegable');
-      console.log(pV);
-      console.log(middle);
-      console.log('HOLA');
-      middle[0].classList.toggle('active');
-      equis[0].classList.toggle('active');
-      desplegable[0].classList.toggle('active');
-    });
-  });
-};
-
-/* export const borrarCache = (section) => {
-  section.in
-} */

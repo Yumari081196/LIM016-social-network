@@ -1,24 +1,18 @@
 import { subirDataHomeCol } from '../src/firebase/funcionesFirestore';
-// import { addDoc, collection } from '../src/firebase/config';
+import {
+  addDoc, collection,
+} from '../src/firebase/config';
 
 jest.mock('../src/firebase/config');
 
 describe('subirDataHomeCol', () => {
-  it('DEberia subir data a coleccion posts', () => subirDataHomeCol('strCreador', 'strPost', 'strCat', '').then(() => {
-    // console.log(collection.mock.results[0].value);
-    // console.log(addDoc.mock.calls[0][1]);
-    // console.log(addDoc(collection.mock.results[0].value, addDoc.mock.calls[0][1]));
-    // console.log(addDoc.mock.results[0].value);
-    /* const colRefPost = collection.mock(db.mock, 'posts');
-    console.log(addDoc);
-    console.log(addDoc.mock);
-    expect(addDoc.mock(colRefPost)).toBe(''); */
+  it('Deberia subir data a coleccion posts', () => subirDataHomeCol('strCreador', 'strPost', 'strCat', '').then(async () => {
+    const prueba = await addDoc(collection.mock.results[0].value, addDoc.mock.calls[0][1]);
+    const variable = {
+      posts: {
+        categoria: 'strCat', imgPost: '', likes: [], publicacion: 'strPost', timestamp: undefined, usuarioId: 'strCreador',
+      },
+    };
+    expect(prueba).toEqual(variable);
   }));
 });
-
-/* describe('obtenerById', () => {
-  it('Obtener documento por id', () => obtenerById('123', 'nameCollection')
-    .then(() => {
-
-  }));
-}); */

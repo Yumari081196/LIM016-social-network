@@ -7,14 +7,15 @@ import {
   muroEditarPerfil,
   seccionCategorias,
 } from '../componentes/muro.js';
-import { cerrarSesion, modalCategorias } from '../componentes/headerMuro.js';
-import { userState, menuPuntosVerticales } from '../componentes/validaciones.js';
+import { cerrarSesion, menuPuntosVerticales, modalCategorias } from '../componentes/headerMuro.js';
+import { userState } from '../componentes/validaciones.js';
 import { creacionPost } from '../componentes/seccionSecMuro.js';
 import { btnEditarPerfil } from '../componentes/seccionEditarPerfil.js';
 
 export const vistasPantalla = () => {
   const main = document.getElementById('main');
   main.innerHTML = '';
+  // devuelve la parte de anclaje de la URL(ruta)
   switch (window.location.hash.toLowerCase()) {
     case '': case '#/': case '#/inicio':
       main.appendChild(fondoHome(formInicioSesion()));
