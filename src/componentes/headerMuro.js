@@ -40,20 +40,6 @@ export const cerrarSesion = () => {
   });
 };
 
-// Funcionalidad de menu puntos verticales
-export const menuPuntosVerticales = () => {
-  const puntosVerticales = document.querySelector('.puntosVerticales');
-  const middle = document.querySelector('.middle');
-  const equis = document.querySelector('.equis');
-  const desplegable = document.querySelector('.desplegable');
-
-  puntosVerticales.addEventListener('click', () => {
-    middle.classList.toggle('active');
-    equis.classList.toggle('active');
-    desplegable.classList.toggle('active');
-  });
-};
-
 // Renderizando modal categorias
 export const seccionModal = () => {
   const seccionModalCategoria = `<section class="seccionModal">

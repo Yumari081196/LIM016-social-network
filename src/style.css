@@ -217,20 +217,35 @@ header{
     height: 70%;
 }
 /* ------------características del muro-----------------*/
+#artMuro{
+    height: 100vh;
+}
 .grid-container{
     display: grid;
     background-color: #F2EEE3;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr 1fr;
     border:transparent;  
 }
 /*--------------------características de la sección izquierda-----------------*/
-.secUsuario, .secCategorias{
-    margin: 3vh 7.5%;
+/* .secUsuario, .secCategorias{
+    margin: 5%;
+    background-color: #F2E0AA;
+    border-radius: 14px 14px 0 0;
+} */
+.item2, .item3{
+    height: 90vh;
+}
+.item3{
+    overflow: auto;
+}
+.secUsuario{
+    height: 40%;
+    margin: 5%;
     background-color: #F2E0AA;
     border-radius: 14px 14px 0 0;
 }
 .contenedorPortada{
-    height: 20vh;
+    height: 50%;
 }
 .contenedorPortada img{
     width: 100%;
@@ -243,9 +258,9 @@ header{
 }
 .contenedorPerfil{
     display: flex;
-    height: 20vh;
+    height: 50%;
     background-color: #F2E0AA;
-    position: relative;
+    /* position: relative; */
     justify-content: center;
     align-items: center;
     border-radius: 0 0 10px 10px;
@@ -254,8 +269,8 @@ header{
     border-color: #844124;
 }
 .contenedorPerfil img{
-    width: 100px;
-    height: 100px;
+    width: 30%;
+    height: auto;
     border-radius: 50%;
     border: 2px solid #844124;
     background-repeat:no-repeat;
@@ -287,15 +302,17 @@ header{
 }
 
 .secCategorias{
+    height: auto;
+    margin: 5%;
     background-color: #E5DCC3;
     border-radius: 10px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
-    padding: 2% 5%;
+    padding: 5%;
 }
 .secCategorias h1{
     display: flex;
     color:#844124;
-    font-size: 27px;
+    font-size: 25px;
     font-weight: bold;
     justify-content: left;
     padding-bottom: 5% ;
@@ -309,15 +326,14 @@ header{
 .categoriaUnica img{
     align-items: center;
     padding: 2px;
-    width: 40px;
-    height: 40px;
+    width: 11%;
     margin-right: 5% ;
     cursor: pointer;
 }
 .categoriaUnica p{
     justify-content: left;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     color: #8F7D7D;
 }
@@ -362,29 +378,29 @@ header{
 }
 /*--------------------------------------------------------------*/
 .tableroCompartir, .tableroPost{
-    margin: 3vh 5.5% 3vh 0;
+    margin: 2%;
     border-radius: 10px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
 }
 .tableroCompartir{
-    padding: 2.5vh 3%;
+    padding: 2% 2% 0 2%;
     background-color: #E5DCC3;
-    height:auto;
+    height: auto;
 }
 .tableroCompartir textarea{
     width: 100%;
-    height: 15vh;
+    height: 13vh;
     border-color: transparent;
     border-radius: 10px;
     padding: 2%;
-    font-size: 18px;
+    font-size: 16px;
 }
 .tableroCompartir .botones{
-    padding: 1vh 0;
+   /*  padding: 1%; */
     display: flex;
     justify-content: space-between;
     /* align-items: center; */
-    margin-top: 2%;
+    margin-top: 1%;
     align-items: flex-start;
 }
 .botonCompartirImagen{
@@ -398,14 +414,15 @@ header{
     box-shadow: 4px 4px 10px rgb(0 0 0 / 35%);
     border-color: transparent;
     color: white;
-    overflow: hidden;
-    font-size: 17px;
+    /* overflow: hidden; */
+    font-size: 16px;
     font-weight: 600;
-    width: 29%;
+    width: 25%;
     min-width: 95px;
-    height: 6vh;
+    padding: 0.5%;
+    /* height: 6vh; */
     cursor: pointer;
-    text-shadow: 1px 1px rgb(119, 114, 114);
+    text-shadow: 1px 1px rgb(119 114 114);
 }
 .tableroCompartir select{
     background-color: #F0AA70;
@@ -413,14 +430,15 @@ header{
     border-color: transparent;
     box-shadow: 4px 4px 10px rgb(0 0 0 / 35%);
     color: white;
-    width: 29%;
-    font-size: 17px;
+    width: 25%;
+    font-size: 16px;
     font-weight: 600;
     min-width: 95px;
-    height: 6vh;
+    padding: 0.5%;
+    /* height: 20%; */
     cursor: pointer;
     text-align: center;
-    text-shadow: 1px 1px rgb(119, 114, 114);
+    text-shadow: 1px 1px rgb(119 114 114);
 }
 .container-post{
     width: auto;
@@ -1274,11 +1292,11 @@ footer{
 }
 .botones input{
     /* display: flex; */
-    align-items: center;
-    width: 40%;
+    /* align-items: center; */
+    width: 35%;
     height: auto;
     border-radius: 0;
-    padding: 0 8px 0 0;
+    /* padding: 0 8px 0 0; */
 
 }
 .editForm{

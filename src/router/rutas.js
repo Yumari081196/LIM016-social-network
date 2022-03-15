@@ -7,8 +7,8 @@ import {
   muroEditarPerfil,
   seccionCategorias,
 } from '../componentes/muro.js';
-import { cerrarSesion, menuPuntosVerticales, modalCategorias } from '../componentes/headerMuro.js';
-import { userState } from '../componentes/validaciones.js';
+import { cerrarSesion, modalCategorias } from '../componentes/headerMuro.js';
+import { userState, menuPuntosVerticales } from '../componentes/validaciones.js';
 import { creacionPost } from '../componentes/seccionSecMuro.js';
 import { btnEditarPerfil } from '../componentes/seccionEditarPerfil.js';
 

@@ -2,18 +2,22 @@ import {
   obtenerPosts, obtenerById, subirDataHomeCol, subirLikes, obtenerUsuarios,
 } from '../firebase/funcionesFirestore.js';
 import { subirFileStorage } from '../firebase/funcionesStorage.js';
-import { validateSessionStorage } from './validaciones.js';
+import { menuPuntosVerticales, validateSessionStorage } from './validaciones.js';
 
 // Renderizar todos los posts
 export const renderPost = (idPost, dataPost, dataCreador) => {
   const divTablero = document.createElement('div');
   divTablero.classList.add('tableroPost');
-
+  console.log(dataCreador);
+  const userData = JSON.parse(sessionStorage.userSession);
   divTablero.innerHTML = `
     <div class="usuarioPost" id= "${idPost}">
         <div class="imgUsuarioPost"><img class="imgPost"src="${dataCreador.imgUsuario}"></div>
         <div class="infoUsuarioPost">
-            <div class="nombreUsuarioPost"><p>${dataCreador.username}</p></div>
+            <div class="nombreUsuarioPost">
+              <p>${dataCreador.username}</p>
+              ${(dataCreador.userId === userData.id) ? '<div class="puntosVerticales"><figure></figure><figure class="middle"></figure><p class="equis"></p><figure></figure><ul class="desplegable"><li><span>Editar</span></li><li><span>Eliminar/span></li></ul></div>' : ''}
+            </div>
             <div class="descripcionUsuarioPost"><p>${dataCreador.descripcion}</p></div>
         </div>
     </div>
@@ -92,6 +96,7 @@ const rellenarHome = async (conteinerPost) => {
           /* const postEliminado = document.getElementById(change.doc.id);
           postEliminado.parentElement.remove(); */
         }
+        menuPuntosVerticales();
       }
     });
   });
@@ -221,11 +226,6 @@ export const creacionPost = (formCompartir) => {
       // obtencion de la url del archivo subido desde el storage
       const urlImagen = await subirFileStorage(archivoLocal, 'imgPosts');
       await subirDataHomeCol(userData.id, postTxt, categoria, urlImagen);
-      /* .then((doc) => {
-        obtenerById(doc.id, 'posts').then((postsById) => {
-          containerPosts.prepend(subirContainer(doc.id, postsById, ''));
-        });
-      }); */
     }
     e.target.reset();
   });
